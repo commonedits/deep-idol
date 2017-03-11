@@ -1,24 +1,52 @@
-.App {
-  text-align: center;
+body {
+ background-color: #303030;
+ font-family: "Levenim MT";
+ color: white;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+h1 {
+ font-size: 36px;
+ font-weight: bold;
+ line-height: 1.5;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+h2 {
+ font-size: 18px;
+ font-weight: bold;
+ line-height: normal;
 }
 
-.App-intro {
-  font-size: large;
+h3 {
+ font-size: 14px;
+ font-weight: normal;
+ line-height: 1.36;
+ opacity: 0.7
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+p {
+ font-size: 14px;
+}
+
+.hidden {
+ opacity: 0;
+ transition: 0.5s;
+ z-index: -100
+}
+
+.show {
+ opacity: 1;
+ transition: 0.5s;
+ z-index: 1;
+}
+
+@font-face {
+    font-family: 'Levenim MT';
+    font-weight: normal;
+    src: local('Levenim MT'), url('./fonts/ufonts.com_levenim-mt.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Levenim MT';
+    font-weight: bold;
+    src: local('Levenim MT'), url('./fonts/lvnmbd.woff') format('woff');
 }
