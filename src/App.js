@@ -6,7 +6,7 @@ import {Route, BrowserRouter as Router} from 'react-router-dom';
 
 import HomePage from './HomePage/HomePage'
 import PickUploadPage from './PickUploadPage/PickUploadPage'
-import Nav from './Nav/Nav'
+import Nav from './components/Nav/Nav'
 
 class App extends Component {
     render() {

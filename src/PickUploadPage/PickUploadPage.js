@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './PickUploadPage.css';
-import Nav from '../Nav/Nav';
 
 import {Link} from 'react-router-dom'
 export default class PickUploadPage extends Component {

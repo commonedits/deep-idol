@@ -1,0 +1,19 @@
+
+.homepage h3 {
+ margin-bottom: 30px;
+}
+
+.player-container {
+ position: absolute;
+ width: 95vw;
+ left: 2.5vw;
+ top: calc(100vh + 12px);
+}
+
+.blur-black {
+ position: absolute;
+ width: 95vw;
+ height: 130vh;
+ background-color: rgba(0, 0, 0, 0.2);
+ top: 10px;
+}
