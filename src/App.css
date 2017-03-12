@@ -1,42 +1,47 @@
 body {
- background-color: #303030;
- font-family: "Levenim MT";
- color: white;
+    background-color: #303030;
+    font-family: "Levenim MT";
+    color: white;
 }
 
 h1 {
- font-size: 36px;
- font-weight: bold;
- line-height: 1.5;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1.5;
 }
 
 h2 {
- font-size: 18px;
- font-weight: bold;
- line-height: normal;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: normal;
 }
 
 h3 {
- font-size: 14px;
- font-weight: normal;
- line-height: 1.36;
- opacity: 0.7
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.36;
+    opacity: 0.7
 }
 
 p {
- font-size: 14px;
+    font-size: 14px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
 }
 
 .hidden {
- opacity: 0;
- transition: 0.5s;
- z-index: -100
+    opacity: 0;
+    transition: 0.5s;
+    z-index: -100
 }
 
 .show {
- opacity: 1;
- transition: 0.5s;
- z-index: 1;
+    opacity: 1;
+    transition: 0.5s;
+    z-index: 1;
 }
 
 @font-face {
@@ -52,7 +57,10 @@ p {
 }
 
 .container {
- margin-top: 60px;
- width: 100%;
- height: calc(100vw - 60px);
+    margin-top: 60px;
+    width: 100%;
+}
+
+.noscroll {
+    overflow-y: hidden;
 }

@@ -9,7 +9,15 @@ export default class Nav extends Component {
     render() {
         return (
             <div className='navbar'>
-             Nav
+
+                <div className='left'>
+                    <a> Deep Idol </a>
+                </div>
+
+                <div className='right'>
+                    <a>Listen</a>
+                </div>
+
             </div>
         );
     }
