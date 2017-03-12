@@ -92,7 +92,7 @@ export default class HomePage extends Component {
             <div className='left-content homepage'>
                 <h1>AI Music Showcase</h1>
                 <h3>Use your music to inspire competing music bots.</h3>
-                <a className='ghost-button'>Start Now</a>
+                <Link to='/submit' className='ghost-button'>Start Now</Link>
                 <div className='fine-print'>
                     <p>Winner receives $1,000 for best bot inspiration.</p>
                     <p>Text Chat Bot 310-356-6084 with questions.</p>

@@ -23,7 +23,6 @@ export default class SongDisplay extends Component {
     }
 
     componentWillMount() {
-        console.log(this.props.song);
     }
 
     goToFullPageSong(song) {

@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import {Route, BrowserRouter as Router} from 'react-router-dom';
 
 import HomePage from './HomePage/HomePage'
-import PickUploadPage from './PickUploadPage/PickUploadPage'
+import SubmitContentPage from './SubmitContentPage/SubmitContentPage'
 import Nav from './components/Nav/Nav'
 
 class App extends Component {
@@ -19,7 +18,7 @@ class App extends Component {
 
                         {/* Insert pages into this router */}
                         <Route exact path='/' component={HomePage}/>
-                        <Route path='/upload' component={PickUploadPage}/>
+                        <Route path='/submit' component={SubmitContentPage}/>
                     </div>
                 </div>
             </Router>
