@@ -50,3 +50,9 @@ p {
     font-weight: bold;
     src: local('Levenim MT'), url('./fonts/lvnmbd.woff') format('woff');
 }
+
+.container {
+ margin-top: 60px;
+ width: 100%;
+ height: calc(100vw - 60px);
+}

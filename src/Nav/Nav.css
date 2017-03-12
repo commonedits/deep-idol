@@ -1,0 +1,17 @@
+.navbar {
+ position: fixed;
+ top: 0;
+ width: 100vw;
+ height: 56px;
+	background-color: #212121;
+	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.12), 0 4px 4px 0 rgba(0, 0, 0, 0.24);
+ display: flex;
+}
+
+.navbar .left {
+
+}
+
+.navbar .right {
+
+}
