@@ -132,6 +132,11 @@
  padding: 3px;
 }
 
+.share-dropdown li {
+ margin-left: -32px;
+ margin-right: 32px;
+}
+
 .song-openmenu {
  position: absolute;
  right: 10px;
