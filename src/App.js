@@ -4,6 +4,7 @@ import './App.css';
 import {Route, browserHistory, BrowserRouter as Router} from 'react-router-dom';
 
 import HomePage from './HomePage/HomePage'
+import SignUpPage from './SignUpPage/SignUpPage'
 import SubmitContentPage from './SubmitContentPage/SubmitContentPage'
 import UploadChoosePage from './UploadChoosePage/UploadChoosePage'
 import FlowNotesChoosePage from './FlowNotesChoosePage/FlowNotesChoosePage'
@@ -36,6 +37,7 @@ export default class App extends Component {
 
                         {/* Insert pages into this router */}
                         <Route exact path='/' component={HomePage}/>
+                        <Route exact path='/register' component={SignUpPage}/>
                         <Route path='/submit' component={SubmitContentPage}/>
                         <Route path='/upload/:content' component={UploadChoosePage}/>
                         <Route exact path='/flownotes' component={FlowNotesChoosePage}/>
