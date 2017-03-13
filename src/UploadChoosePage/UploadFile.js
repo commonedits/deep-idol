@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import './UploadChoosePage.css';
 import md5 from './md5'
-// import {hashHistory} from 'react-router';
+import {browserHistory} from 'react-router';
+import createHistory from 'history/createBrowserHistory'
+const history = createHistory();
+const location = history.location
 // import axios from 'axios';
 // const saveBotURL = "https://api.commonedits.com/v1/song/create"
 export default class UploadFile extends Component {
@@ -177,9 +180,10 @@ export default class UploadFile extends Component {
     saveBot() {
      console.log(this.state);
      document.getElementById('blacklayer').classList.remove('show');
+     history.replace('/thanks');
         // axios.request({
         //     url: saveBotURL,
-        //     method: 'post',
+        //     method: 'post
         //     data: {
         //         token: localStorage.token,
         //         title: this.state.title,

@@ -29,7 +29,7 @@ class App extends Component {
             <Router>
                 <div>
                     {/* Nav Bar */}
-                    {this.state.displayNav && <Nav ref="navbar" hideNav={this.hideNav}/>}
+                    <Nav />
                     <div className='container'>
 
                         {/* Insert pages into this router */}

@@ -5,7 +5,7 @@ import axios from 'axios'
 // import Nav from '../../nav-component/Nav';
 import FaChevronLeft from 'react-icons/lib/fa/chevron-left';
 import FaChevronRight from 'react-icons/lib/fa/chevron-right';
-import {hashHistory} from 'react-router';
+import {Link} from 'react-router-dom';
 // import Swipeable from 'react-swipeable';
 const getRhymesAPI = "https://7hbrhkzik4.execute-api.us-west-1.amazonaws.com/test/rhyme"
 const getThesaurusAPI = "https://7hbrhkzik4.execute-api.us-west-1.amazonaws.com/test/phonetilicious"
@@ -57,20 +57,22 @@ export default class FlowNotesSong extends Component {
     }
 
     componentDidMount() {
-     document.getElementById('navbar').style.opacity = 0
+        document.getElementById('navbar').style.opacity = 0
+        document.getElementById('navbar').style.zIndex = -100
     }
 
     componentWillUnmount() {
         console.log("wiping out timeouts");
         clearTimeout(this.timeout)
         document.getElementById('navbar').style.opacity = 1
+        document.getElementById('navbar').style.zIndex = 100
     }
 
     componentDidUpdate() {}
 
     editModeSelectWord(string, cursor) {
-     console.log("editing words");
-     console.log("cursor: ", cursor);
+        console.log("editing words");
+        console.log("cursor: ", cursor);
         let prevSpace = string.lastIndexOf(' ', cursor);
         let nextSpace = string.indexOf(' ', cursor);
         console.log(prevSpace, nextSpace);
@@ -86,7 +88,7 @@ export default class FlowNotesSong extends Component {
             result.start = prevSpace + 1
         }
         if (nextSpace === -1) {
-         console.log("i'm at the end");
+            console.log("i'm at the end");
             result.end = string.length;
         }
         console.log(result);
@@ -115,7 +117,6 @@ export default class FlowNotesSong extends Component {
         this.timeout = setTimeout(() => {
             if (this.state.isActive === 'edit') {
 
-
                 let positions = this.editModeSelectWord(event.target.value, event.target.selectionStart);
                 console.log(event.target.selectionStart);
                 console.log(event.target.selectionEnd);
@@ -123,7 +124,8 @@ export default class FlowNotesSong extends Component {
                 event.target.selectionEnd = positions.end;
                 console.log(event.target.selectionStart);
                 console.log(event.target.selectionEnd);
-                this.setState({displayAMT: 20,
+                this.setState({
+                    displayAMT: 20,
                     selectedWord: event.target.value.substring(event.target.selectionStart, event.target.selectionEnd),
                     selectedWordLocation: event.target.selectionStart
                 }, () => {
@@ -152,7 +154,8 @@ export default class FlowNotesSong extends Component {
             this.timeout = setTimeout(() => {
                 let tempPos = event.target.selectionStart
                 event.target.selectionStart = this.getSelection(event.target.value, event.target.selectionStart)
-                this.setState({displayAMT: 2,
+                this.setState({
+                    displayAMT: 2,
                     selectedWord: event.target.value.substring(event.target.selectionStart, event.target.selectionEnd)
                 }, () => {
                     this.getWords()
@@ -168,7 +171,7 @@ export default class FlowNotesSong extends Component {
 
             this.timeout = setTimeout(() => {
                 axios.post(getRhymesAPI, {rhyme: this.state.selectedWord}).then((res) => {
-                    this.props.updateToken(res.data['renewed_token'])
+                    // this.props.updateToken(res.data['renewed_token'])
                     if (res.data.errorMessage) {
                         this.setState({results: [], saving: true})
                     } else {
@@ -191,21 +194,6 @@ export default class FlowNotesSong extends Component {
                 })
 
             }, 1000);
-
-            // } else if (this.state.isActive === 'auto') {
-            //     clearTimeout(this.timeout);
-            //
-            //     this.timeout = setTimeout(() => {
-            //         axios.post(getAutoSuggestAPI, {input: this.state.selectedWord}).then((res) => {
-            //             console.log(res);
-            //             if (res.data.errorMessage) {
-            //                 this.setState({results: [], saving: true})
-            //             } else {
-            //                 this.setState({results: res.data.output, saving: true})
-            //             }
-            //         })
-            //
-            //     }, 1000);
         }
     }
 
@@ -264,38 +252,7 @@ export default class FlowNotesSong extends Component {
     animateSwipe(event) {}
 
     saveLyrics() {
-        if (this.props.params.uid === "guest") {
-
-            //go through reg flow
-            hashHistory.push({
-                pathname: "/registration",
-                state: {
-                    head: "Create an Account",
-                    subhead: "This is required to save your lyrics",
-                    lyrics: this.state.value,
-                    title: this.state.title,
-                    hasAccount: false
-                }
-            })
-        } else {
-            //update song then go back to lyric list
-            axios.request({
-                method: 'post',
-                url: `https://api.commonedits.com/v1/flownotes/note/${this.props.params.songtitle}/update`,
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'text/plain'
-                },
-                data: {
-                    title: this.state.title,
-                    body: this.state.value,
-                    token: localStorage.token
-                },
-                responseType: 'json'
-            }).then((res) => {
-                hashHistory.push(`/create/${res.data.note.user_id}/flownotes`);
-            }).catch((err) => {})
-        }
+     console.log("saveLyrics");
     }
 
     render() {
@@ -304,7 +261,7 @@ export default class FlowNotesSong extends Component {
 
         return (
             <div className="container flownotes-page">
-             {/* <div className="modal">
+                {/* <div className="modal">
              <div className="modal-tutorial">
               <h1>WELCOME TO FLOW NOTES</h1>
               <p>This is how flow notes works</p>
@@ -318,9 +275,15 @@ export default class FlowNotesSong extends Component {
                     </div>
                     {!this.props.menuStatus && <div className="flownotes-Nav-logo-right">
                         {/* <img id='flownotes-burger' onClick={() => {this.props.showMenu()}} src={require('../../images/hamburger2.png')} alt="Common Edits"/> */}
-                        <button onClick={this.saveLyrics}>
+                        <Link to='/thanks' className='ghost-button' style={{
+                            paddingTop: 4,
+                            paddingBottom: 4,
+                            paddingRight: 16,
+                            paddingLeft: 16,
+                            marginRight: 8
+                        }}>
                             SAVE
-                        </button>
+                        </Link>
                         <a onClick={() => this.props.showMenu()}>Menu</a>
                     </div>}
                     {this.props.menuStatus && <div className="menu">
@@ -334,7 +297,9 @@ export default class FlowNotesSong extends Component {
                 </div>
 
                 <div className="type-container">
-                    <textarea id="lyric-input" type="text" value={this.state.value} readOnly={this.state.isActive === 'flow' ? false : true} onChange={(event) => {
+                    <textarea id="lyric-input" type="text" value={this.state.value} readOnly={this.state.isActive === 'flow'
+                        ? false
+                        : true} onChange={(event) => {
                         this.setState({value: event.target.value})
                     }} onMouseUp={this.editWords} onKeyUp={this.selectWord} placeholder="Type lyrics here..."/>
                 </div>
@@ -355,21 +320,21 @@ export default class FlowNotesSong extends Component {
 
                     {/* <Swipeable trackMouse={true} onSwipedLeft={() => this.nextPage()} onSwipedRight={() => this.prevPage()} onSwiping={() => this.animateSwipe()}> */}
 
-                        <div className="results">
-                            {this.state.results.map((item, index) => {
-                                if (index >= this.state.offset && index <= this.state.offset + this.state.displayAMT) {
+                    <div className="results">
+                        {this.state.results.map((item, index) => {
+                            if (index >= this.state.offset && index <= this.state.offset + this.state.displayAMT) {
 
-                                    return (
-                                        <a key={index} onClick={(event) => this.addRhyme(item)}>
-                                            {item}
-                                        </a>
-                                    )
-                                }
+                                return (
+                                    <a key={index} onClick={(event) => this.addRhyme(item)}>
+                                        {item}
+                                    </a>
+                                )
+                            }
 
-                                return true;
+                            return true;
 
-                            })}
-                        </div>
+                        })}
+                    </div>
                     {/* </Swipeable> */}
                 </div>
                 <div className='bottomblack'></div>
