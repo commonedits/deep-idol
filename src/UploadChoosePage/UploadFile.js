@@ -1,16 +1,12 @@
 import React, {Component} from 'react';
 import './UploadChoosePage.css';
 import md5 from './md5'
-import {browserHistory} from 'react-router';
-import createHistory from 'history/createBrowserHistory'
-const history = createHistory();
-const location = history.location
 // import axios from 'axios';
 // const saveBotURL = "https://api.commonedits.com/v1/song/create"
 export default class UploadFile extends Component {
 
-    constructor(props) {
-        super(props)
+    constructor(props, context) {
+        super(props, context)
         this.state = {
             loaded: 0,
             name: '',
@@ -160,10 +156,10 @@ export default class UploadFile extends Component {
     }
 
     compenentWillMount() {
-        console.log(this.state.genrelist);
     }
 
     componentDidMount() {
+     console.log("CONTEXT", this.context);
         clearInterval(this.interval);
 
         // this.interval = setInterval(() => {
@@ -180,7 +176,12 @@ export default class UploadFile extends Component {
     saveBot() {
      console.log(this.state);
      document.getElementById('blacklayer').classList.remove('show');
-     history.replace('/thanks');
+     this.context.router.history.push('/thanks')
+     let data = {
+             title: this.state.title,
+             genre: this.state.genre.split(','),
+             siberia_id: this.props.siberia_id
+         }
         // axios.request({
         //     url: saveBotURL,
         //     method: 'post
@@ -270,16 +271,27 @@ export default class UploadFile extends Component {
                             <input onChange={(event) => this.setState({email: event.target.value})} placeholder="Email Address" required type="email"/>
 
                             <input required onChange={(event) => this.passwordHandler(event, this.setPassword)} placeholder="Password" type="password"/>
+                            <div>
 
                             <a onClick={() => this.saveBot()} id={this.state.name.length === 0
                                 ? 'inactive'
                                 : ''} className="save">
                                 Save
                             </a>
+                            <a onClick={() => this.saveBot()} id={this.state.name.length === 0
+                                ? 'inactive'
+                                : ''} className="saveandadd">
+                                Upload Another
+                            </a>
+                           </div>
                         </div>
                     </div>
                 </div>
             </div>
         )
     }
+}
+
+UploadFile.contextTypes = {
+  router: React.PropTypes.object
 };

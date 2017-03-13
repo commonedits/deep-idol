@@ -8,8 +8,8 @@ import Reddit from 'react-icons/lib/fa/reddit-alien';
 import Wordpress from 'react-icons/lib/fa/wordpress';
 
 export default class SongDisplay extends Component {
-    constructor(props) {
-        super(props);
+    constructor(props, context) {
+        super(props, context);
         this.goToFullPageSong = this.goToFullPageSong.bind(this)
         this.playSong = this.playSong.bind(this)
         this.goToArtistProfile = this.goToArtistProfile.bind(this)

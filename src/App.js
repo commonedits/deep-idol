@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 
-import {Route, BrowserRouter as Router} from 'react-router-dom';
+import {Route, browserHistory, BrowserRouter as Router} from 'react-router-dom';
 
 import HomePage from './HomePage/HomePage'
 import SubmitContentPage from './SubmitContentPage/SubmitContentPage'
@@ -11,10 +11,11 @@ import ThankYouPage from './ThankYouPage/ThankYouPage'
 import FlowNotes from './FlowNotes/FlowNotes.js'
 import Nav from './components/Nav/Nav'
 
-class App extends Component {
+export default class App extends Component {
 
- constructor(props) {
-   super(props);
+ constructor(props, context) {
+   super(props, context);
+   console.log("CONTEXT ", context);
    this.state = {
     displayNav: true,
    }
@@ -26,10 +27,11 @@ class App extends Component {
 
     render() {
         return (
-            <Router>
+            <Router history={browserHistory}>
                 <div>
                     {/* Nav Bar */}
                     <Nav />
+
                     <div className='container'>
 
                         {/* Insert pages into this router */}
@@ -46,4 +48,6 @@ class App extends Component {
     }
 }
 
-export default App;
+App.contextTypes = {
+  router: React.PropTypes.object
+};

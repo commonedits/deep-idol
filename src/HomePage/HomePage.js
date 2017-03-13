@@ -5,8 +5,8 @@ import SongDisplay from '../components/SongDisplay/SongDisplay'
 import {Link} from 'react-router-dom'
 
 export default class HomePage extends Component {
-    constructor(props) {
-        super(props);
+    constructor(props, context) {
+        super(props, context);
         this.hideMenus = this.hideMenus.bind(this)
     }
 

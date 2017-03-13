@@ -11,8 +11,8 @@ const upload = "https://api.commonedits.com/v1/song/upload"
 // const debug = "https://api.commonedits.com/phpinfo.php"
 export default class UploadChoosePage extends Component {
 
-    constructor(props) {
-        super(props)
+    constructor(props, context) {
+        super(props, context)
         this.state = {
             loaded: 0,
             siberia_id: 0,
@@ -61,7 +61,7 @@ export default class UploadChoosePage extends Component {
 
         return (
             <div className='left-content submitpage'>
-                <div id="blacklayer" className="hidden">
+                <div id="blacklayer" className="show">
                     <UploadFile siberia_id={this.state.siberia_id} loaded={this.state.loaded}/>
                 </div>
                 <h2>Upload your {content}</h2>
