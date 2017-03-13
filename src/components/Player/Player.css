@@ -1,0 +1,69 @@
+.Player-wrapper {
+ position: fixed;
+ bottom: 0;
+ width: 100vw;
+ height: 64px;
+ background-color: black;
+ z-index: 10000;
+ display: flex;
+ justify-content: flex-start;
+}
+
+
+
+.Player-wrapper .img-wrapper {
+ width: 64px;
+ height: 64px;
+ background-color: gray;
+}
+
+.Player-wrapper .info-wrapper {
+ width: 80%;
+ float: right;
+}
+
+.Player-wrapper .info-wrapper img {
+ position: absolute;
+ right: 10px;
+ width: 50px;
+ margin-top: 7px;
+
+}
+
+.Player-wrapper .info-wrapper .info {
+ float: left;
+}
+
+.Player-wrapper .info-wrapper .info h1 {
+ font-family: 'Levenim MT Bold';
+ font-size: 16px;
+ color: white;
+ padding-left: 10px;
+}
+
+.Player-wrapper .info-wrapper .info h4 {
+ opacity: 0.5;
+ letter-spacing: 0.1px;
+ font-size: 16px;
+ margin-top: -11px;
+color: white;
+padding-left: 10px;
+}
+
+#unplayed-bar {
+ position: absolute;
+ width: 100%;
+ height: 5px;
+ background-color: gray;
+ top: 0px;
+ z-index: 29;
+}
+
+#played-bar {
+ position: absolute;
+ height: 5px;
+ background-color: #7c4dff;
+ top: 0;
+ z-index: 30;
+ transition: 0.2s
+}

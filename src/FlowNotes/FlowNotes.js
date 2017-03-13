@@ -5,7 +5,6 @@ import axios from 'axios'
 // import Nav from '../../nav-component/Nav';
 import FaChevronLeft from 'react-icons/lib/fa/chevron-left';
 import FaChevronRight from 'react-icons/lib/fa/chevron-right';
-import {transitionTo} from 'react-router-dom';
 // import Swipeable from 'react-swipeable';
 const getRhymesAPI = "https://7hbrhkzik4.execute-api.us-west-1.amazonaws.com/test/rhyme"
 const getThesaurusAPI = "https://7hbrhkzik4.execute-api.us-west-1.amazonaws.com/test/phonetilicious"

@@ -182,6 +182,7 @@ export default class UploadFile extends Component {
              genre: this.state.genre.split(','),
              siberia_id: this.props.siberia_id
          }
+         console.log(data);
         // axios.request({
         //     url: saveBotURL,
         //     method: 'post
