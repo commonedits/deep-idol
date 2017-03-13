@@ -1,15 +1,17 @@
 import React, {Component} from 'react';
 import './Nav.css'
 
+import {Link} from 'react-router-dom'
+
 export default class Nav extends Component {
     render() {
         return (
-            <div className='navbar'>
+            <div id="navbar" className='navbar'>
 
                 <div className='left'>
-                    <a>
+                    <Link to='/'>
                         Deep Idol
-                    </a>
+                    </Link>
                 </div>
 
                 <div className='right'>

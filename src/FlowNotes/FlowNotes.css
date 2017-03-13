@@ -1,0 +1,321 @@
+.flownotes-page {
+ height: 100vw;
+ overflow-y: hidden;
+}
+.inline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.5s;
+}
+
+.inline h3 {
+    font-size: 2.6em;
+    margin: 0.3em;
+    transition: 0.5s;
+}
+
+.type-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+}
+
+.song-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    transition: 0.5s;
+}
+
+.songchoice-container {
+    width: 90%;
+    margin: auto;
+}
+
+.song-title-row input {
+    width: 100vw;
+    height: 30px;
+    background-color: transparent;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    padding: 3.5px;
+    margin-bottom: 15px;
+    transition: 0.5s;
+}
+
+.flownotes-Nav-logo-right {
+    float: right;
+    height: 100%;
+    padding-right: 10px;
+    transition: 0.5s;
+}
+
+.flownotes-Nav-logo-right button {
+    margin-right: 12px;
+    padding: 8px;
+    border: 2px white solid;
+    background-color: transparent;
+    transition: 0.5s;
+}
+
+/*.modal {
+ height: 100vh;
+ width: 100vw;
+ background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal-tutorial {
+ height: 80vh;
+ width: 90vw;
+ flex-direction: column;
+ position: absolute;
+ margin-top: 10vh;
+ margin-left: 5vw;
+ background-color: gray;
+}*/
+
+.type-container textarea {
+    font-size: 14px;
+    width: 100vw;
+    height: 60px;
+    border-style: hidden;
+    color: white;
+    background-color: transparent;
+    padding: 5px;
+    margin-top: -10px;
+    margin-bottom: 25px;
+    user-select: text;
+    transition: 0.5s;
+}
+
+textarea {
+    resize: none;
+    outline: none;
+    transition: 0.5s;
+}
+
+.tools-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #212121;
+    padding: 5px;
+    transition: 0.5s;
+}
+
+.dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: 0.5s;
+}
+
+.dots span {
+    margin: 0 5px;
+    transition: 0.5s;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    transition: 0.5s;
+}
+
+.results {
+    width: 95vw;
+    height: 60px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    transition: 0.5s;
+    word-wrap: normal;
+    flex-wrap: wrap;
+}
+
+.results a {
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: black;
+    transition: 0.5s;
+    margin-left: 10px;
+    box-shadow: 1px 1px 2px gray;
+}
+
+.flownotes-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding-left: 5px;
+    transition: 0.5s;
+}
+
+.menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: 0.5s;
+}
+
+.flownotes-navbar .flownotes-buttons a {
+    padding: 5px 10px;
+    border: solid 1px black;
+    text-align: center;
+    border-radius: 2px;
+    background-color: black;
+    color: white;
+    transition: 0.5s;
+}
+
+.tools-container .toolbar-buttons a {
+    padding: 4px 8px;
+    border: solid 1px black;
+    text-align: center;
+    border-radius: 2px;
+    background-color: black;
+    color: white;
+    font-size: 12px;
+    transition: 0.5s;
+}
+
+#inactive {
+    background-color: lightgray;
+    color: gray;
+    transition: 0.5s;
+}
+
+#flownotes-burger {
+    height: 35px;
+    transition: 0.5s;
+}
+
+.flownotes-navbar .flownotes-buttons #active {
+    background-color: white;
+    color: black;
+    transition: 0.2s
+}
+
+.tools-container .toolbar-buttons #active {
+    background-color: white;
+    color: black;
+    transition: 0.2s
+}
+
+#song-list {
+ margin-top: 0;
+    transition: 0.5s;
+}
+
+.song-choice {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    border-radius: 2px;
+    border: transparent;
+    background-color: #424242;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24);
+    padding: 0px;
+    height: 155px;
+    transition: 0.5s;
+}
+
+.song-choice .songtitle {
+    font-family: "Levenim MT";
+    font-size: 24px;
+    margin-top: 8px;
+    margin-bottom: -4px;
+    transition: 0.5s;
+}
+
+#newsong {
+    border: 1px solid white;
+    padding: 12px 8px;
+    margin-right: 10px;
+    border-radius: 2px;
+    transition: 0.5s;
+}
+
+.line {
+    position: absolute;
+    bottom: 40px;
+    width: 95%;
+    height: 2px;
+    left: 8px;
+    background-color: #A0A0A0;
+    transition: 0.5s;
+}
+
+.song-options {
+    position: absolute;
+    box-sizing: border-box;
+    bottom: 0;
+    right: 0;
+    margin: 8px;
+    transition: 0.5s;
+}
+
+.song-options a {
+    border: 1px #A0A0A0 solid;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 2px;
+    transition: 0.5s;
+}
+
+.song-options #first {
+    margin-right: 4px;
+    transition: 0.5s;
+}
+
+.bottomblack {
+    height: 2000px;
+    width: 100;
+    background-color: #212121;
+    transition: 0.5s;
+}
+
+@media (max-width: 320px) {
+    .tools-container .toolbar-buttons {
+     width: 85px;
+    transition: 0.5s;
+    }
+
+    .dots span {
+     display: none;
+    transition: 0.5s;
+    }
+
+    .dots {
+     margin-right: 15px;
+    transition: 0.5s;
+    }
+
+    .dots #prev {
+     margin-right: 20px;
+    transition: 0.5s;
+    }
+
+    .choice .songtitle {
+     font-size: 20px;
+    transition: 0.5s;
+    }
+
+    .choice p {
+     font-size: 14px;
+    transition: 0.5s;
+    }
+}

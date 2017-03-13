@@ -14,8 +14,8 @@ export default class FlowNotesChoosePage extends Component {
                 <h2>Step One: Submit Content</h2>
                 <h3>You must own 100%</h3>
                 <div className="center-container center-content choice-container">
-                    <Link className='stacked-ghost-button' to='/upload/accapella'>Acapella</Link>
-                    <Link className='stacked-ghost-button' to='/upload/instrumental'>Instrumental</Link>
+                    <Link className='stacked-ghost-button' to='/upload/lyrics'>Upload a Song</Link>
+                    <Link className='stacked-ghost-button' to='/flownotes/create'>Write One Now</Link>
 
                 </div>
 

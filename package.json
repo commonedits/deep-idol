@@ -19,6 +19,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && cd build && aws s3 sync . s3://deepidol.com --delete --exclude '.DS_Store' --exclude '/buildarchives/*'"
+    "deploy": "npm run build && cd build && aws s3 sync . s3://deepidol.com --exclude '.DS_Store'"
   }
 }
