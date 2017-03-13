@@ -121,8 +121,3 @@ input {
     margin-bottom: 25px;
     outline: none;
 }
-
-.hidenav {
- display: none;
- height: 0px;
-}
