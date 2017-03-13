@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import './UploadChoosePage.css';
 
-import {Link} from 'react-router-dom'
-import axios from 'axios'
+// import {Link} from 'react-router-dom'
+// import axios from 'axios'
 
-import {hashHistory} from 'react-router';
+// import {hashHistory} from 'react-router';
 import Upload from 'rc-upload';
 import UploadFile from './UploadFile';
 const upload = "https://api.commonedits.com/v1/song/upload"
-const debug = "https://api.commonedits.com/phpinfo.php"
+// const debug = "https://api.commonedits.com/phpinfo.php"
 export default class UploadChoosePage extends Component {
 
     constructor(props) {
@@ -67,9 +67,14 @@ export default class UploadChoosePage extends Component {
                 <h2>Upload your {content}</h2>
                 <h3>You must own 100%</h3>
                 <div className="center-container center-content choice-container">
-                    <Upload {...this.state.initProps}>
-                        <a>Choose a file</a>
+                    <Upload className='stacked-ghost-button' {...this.state.initProps}>
+                        <a style={{
+                         fontSize: 22
+                        }}>Choose a file</a>
                     </Upload>
+                    {content === 'Acapella' &&
+                    <a className='stacked-ghost-button' id='record file'>Record File</a>
+                   }
 
                 </div>
 

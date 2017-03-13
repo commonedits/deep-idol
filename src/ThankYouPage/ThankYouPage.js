@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './ThankYouPage.css';
 import SongDisplay from '../components/SongDisplay/SongDisplay'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 
 export default class ThankYouPage extends Component {
     constructor(props) {

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import './UploadChoosePage.css';
 import md5 from './md5'
-import {hashHistory} from 'react-router';
-import axios from 'axios';
-const saveBotURL = "https://api.commonedits.com/v1/song/create"
+// import {hashHistory} from 'react-router';
+// import axios from 'axios';
+// const saveBotURL = "https://api.commonedits.com/v1/song/create"
 export default class UploadFile extends Component {
 
     constructor(props) {

@@ -49,7 +49,7 @@ export default class FlowNotesSong extends Component {
 
     componentWillMount() {
         console.log("PROPS: ", this.props);
-        console.log("STATE: ", this.state);
+        console.log("Refs: ", this.refs);
         // if we get here from song page there should be a song loaded
         if (this.props.location.state) {
             this.setState({title: this.props.location.state.title, value: this.props.location.state.body})
@@ -57,12 +57,13 @@ export default class FlowNotesSong extends Component {
     }
 
     componentDidMount() {
-     document.getElementById('navbar').classList.add('hidenav');
+     document.getElementById('navbar').style.opacity = 0
     }
 
     componentWillUnmount() {
         console.log("wiping out timeouts");
         clearTimeout(this.timeout)
+        document.getElementById('navbar').style.opacity = 1
     }
 
     componentDidUpdate() {}

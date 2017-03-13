@@ -20,12 +20,16 @@ class App extends Component {
    }
  }
 
+ hideNav(){
+  this.setState({displayNav: false})
+ }
+
     render() {
         return (
             <Router>
                 <div>
                     {/* Nav Bar */}
-                    {this.state.displayNav && <Nav/>}
+                    {this.state.displayNav && <Nav ref="navbar" hideNav={this.hideNav}/>}
                     <div className='container'>
 
                         {/* Insert pages into this router */}

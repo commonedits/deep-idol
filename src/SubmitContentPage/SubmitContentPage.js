@@ -14,7 +14,7 @@ export default class SubmitContentPage extends Component {
                 <h2>Step One: Submit Content</h2>
                 <h3>You must own 100%</h3>
                 <div className="center-container center-content choice-container">
-                    <Link className='stacked-ghost-button' to='/upload/accapella'>Acapella</Link>
+                    <Link className='stacked-ghost-button' to='/upload/acapella'>Acapella</Link>
                     <Link className='stacked-ghost-button' to='/upload/instrumental'>Instrumental</Link>
                     <Link className='stacked-ghost-button' to='/upload/fullsong'>Complete Song</Link>
                     <Link className='stacked-ghost-button' to='/flownotes'>Lyrics</Link>
