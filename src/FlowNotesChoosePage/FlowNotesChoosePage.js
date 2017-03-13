@@ -4,10 +4,6 @@ import './FlowNotesChoosePage.css';
 import {Link} from 'react-router-dom'
 export default class FlowNotesChoosePage extends Component {
 
-    componentWillMount() {
-        console.log("PROPS: ", this.props);
-    }
-
     render() {
         return (
             <div className='left-content submitpage'>

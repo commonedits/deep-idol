@@ -4,9 +4,6 @@ import './SubmitContentPage.css';
 import {Link} from 'react-router-dom'
 export default class SubmitContentPage extends Component {
 
-    componentWillMount() {
-        console.log("PROPS: ", this.props);
-    }
 
     render() {
         return (

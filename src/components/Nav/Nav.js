@@ -5,9 +5,6 @@ import {Link} from 'react-router-dom'
 
 export default class Nav extends Component {
 
-componentDidMount(){
- console.log(this);
-}
 
     render() {
         return (

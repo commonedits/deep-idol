@@ -80,7 +80,6 @@ export default class ThankYouPage extends Component {
     hideMenus() {
         document.getElementById('black-layer').classList.remove('show');
         let shown = document.getElementsByClassName('show');
-        console.log(shown);
         for (var i = 0; i < shown.length; i++) {
             shown[i].classList.remove('show');
         }

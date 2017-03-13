@@ -5,13 +5,12 @@ import './App.css';
 import axios from 'axios';
 const server = "https://api.commonedits.com/v1"
 import Nav from './components/Nav/Nav'
-import Player from './components/Player/Player'
+// import Player from './components/Player/Player'
 
 export default class App extends Component {
 
     constructor(props, context) {
         super(props, context);
-        console.log(this.props.children);
         this.state = {
             userLoggedIn: false,
             showMenu: false,
@@ -58,14 +57,12 @@ export default class App extends Component {
                 this.updateToken(res.data['renewed_token']);
                 this.setState({userLoggedIn: true, token: res.data['renewed_token'], uid: localStorage.uid});
             }).catch((err) => {
-                console.error(err)
             })
         }
     }
 
     addSong(song) {
         let allPlayers = document.getElementsByTagName('audio');
-        console.log(allPlayers);
         for (var i = 0; i < allPlayers.length; i++) {
             allPlayers[i].pause()
             allPlayers[i].currentTime = 0;

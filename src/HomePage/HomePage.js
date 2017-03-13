@@ -13,12 +13,10 @@ export default class HomePage extends Component {
         this.state = {
          songs: [],
         }
-        console.log(this.props);
         this.hideMenus = this.hideMenus.bind(this)
     }
 
     componentDidMount(){
-     console.log(this.props);
     }
 
     componentWillMount(){
@@ -32,7 +30,6 @@ export default class HomePage extends Component {
     hideMenus() {
         document.getElementById('black-layer').classList.remove('show');
         let shown = document.getElementsByClassName('show');
-        console.log(shown);
         for (var i = 0; i < shown.length; i++) {
             shown[i].classList.remove('show');
         }

@@ -30,7 +30,6 @@ export default class FlowNotesSong extends Component {
             displayAMT: 2
         };
 
-        console.log("FLOWNOTES CONTEXT: ", context);
 
         this.timeout = null;
 
@@ -235,7 +234,6 @@ export default class FlowNotesSong extends Component {
     animateSwipe(event) {}
 
     saveLyrics() {
-     console.log(this.context);
      this.context.router.history.push('/thanks');
     }
 

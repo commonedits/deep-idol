@@ -31,7 +31,6 @@ export default class SignUpPage extends Component {
                 artist_name: this.state.artist
             }
             axios.post(signup, data).then((res) => {
-             console.log(res.data);
              localStorage.uid = res.data.user.id
              localStorage.email = res.data.user.email
              localStorage.token = res.data.token
@@ -48,7 +47,6 @@ export default class SignUpPage extends Component {
                 password: hash
             }
             axios.post(login, data).then((res) => {
-             console.log(res.data);
              localStorage.uid = res.data.user.id
              localStorage.email = res.data.user.email
              localStorage.token = res.data.token

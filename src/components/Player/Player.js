@@ -13,11 +13,9 @@ export default class Player extends Component {
     }
 
     componentWillMount() {
-        console.log(this.props.song);
     }
 
     componentDidMount() {
-        console.log("I got the first song");
         //play song
 
         const song = document.getElementById(`song-${this.props.song.id}`);
@@ -25,7 +23,6 @@ export default class Player extends Component {
     }
 
     playOrPause() {
-        console.log(this.props.song, "Gotta play or pause");
         const song = document.getElementById(`song-${this.props.song.id}`);
         if (!song.paused) {
             song.pause();
@@ -55,7 +52,6 @@ export default class Player extends Component {
     }
 
     playSongFromThisPosition(event) {
-     console.log(event.nativeEvent);
      let bar = document.getElementById('unplayed-bar').offsetWidth;
      //how many pixels is the player bar
      let totalPX = bar - event.target.offsetLeft
@@ -65,8 +61,6 @@ export default class Player extends Component {
 
      const song = document.getElementById(`song-${this.props.song.id}`);
      let time = currPX/totalPX * song.duration;
-     console.log(time / 60);
-     console.log(song.duration / 60);
      song.currentTime = time;
      this.playbackBarController();
 

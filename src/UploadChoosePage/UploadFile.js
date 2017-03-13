@@ -159,7 +159,6 @@ export default class UploadFile extends Component {
     }
 
     componentDidMount() {
-     console.log("CONTEXT", this.context);
         clearInterval(this.interval);
 
         // this.interval = setInterval(() => {
@@ -168,21 +167,18 @@ export default class UploadFile extends Component {
         //         this.setState({loaded: newState})
         //     } else {
         //         clearInterval(this.interval);
-        //         console.log("Song is uploaded");
         //     }
         // }, 50);
     }
 
     saveBot() {
-     console.log(this.state);
      document.getElementById('blacklayer').classList.remove('show');
      this.context.router.history.push('/thanks')
-     let data = {
-             title: this.state.title,
-             genre: this.state.genre.split(','),
-             siberia_id: this.props.siberia_id
-         }
-         console.log(data);
+     // let data = {
+     //         title: this.state.title,
+     //         genre: this.state.genre.split(','),
+     //         siberia_id: this.props.siberia_id
+     //     }
         // axios.request({
         //     url: saveBotURL,
         //     method: 'post
@@ -193,7 +189,6 @@ export default class UploadFile extends Component {
         //         siberia_id: this.props.siberia_id
         //     }
         // }).then((res) => {
-        //  console.log(res);
         //  document.getElementById('blacklayer').classList.remove('show');
         // }).catch((err) => {
         //  alert("there was an error completing your song")
