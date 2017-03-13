@@ -109,3 +109,15 @@ a {
 .fine-print {
  margin-top: 36px;
 }
+
+input {
+    font-family: "Levenim MT";
+    width: 75%;
+    height: 50px;
+    border-style: hidden;
+    color: white;
+    background-color: #424242;
+    padding-left: 15px;
+    margin-bottom: 25px;
+    outline: none;
+}
