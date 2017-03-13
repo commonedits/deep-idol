@@ -7,6 +7,7 @@ import HomePage from './HomePage/HomePage'
 import SubmitContentPage from './SubmitContentPage/SubmitContentPage'
 import UploadChoosePage from './UploadChoosePage/UploadChoosePage'
 import FlowNotesChoosePage from './FlowNotesChoosePage/FlowNotesChoosePage'
+import ThankYouPage from './ThankYouPage/ThankYouPage'
 import FlowNotes from './FlowNotes/FlowNotes.js'
 import Nav from './components/Nav/Nav'
 
@@ -33,6 +34,7 @@ class App extends Component {
                         <Route path='/upload/:content' component={UploadChoosePage}/>
                         <Route exact path='/flownotes' component={FlowNotesChoosePage}/>
                         <Route path='/flownotes/create' component={FlowNotes}/>
+                        <Route path='/thanks' component={ThankYouPage}/>
                     </div>
                 </div>
             </Router>
