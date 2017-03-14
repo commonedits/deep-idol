@@ -4,18 +4,59 @@ import md5 from './md5'
 // import axios from 'axios';
 // const saveBotURL = "https://api.commonedits.com/v1/song/create"
 import genres from './genres'
+import Upload from 'rc-upload';
+import cloudinary from 'cloudinary'
+const uploadpicture = "https://api.commonedits.com/v1/user/picture_upload"
+const uploadsong = "https://api.commonedits.com/v1/song/upload"
 export default class UploadFile extends Component {
 
     constructor(props, context) {
         super(props, context)
         this.state = {
             loaded: 0,
-            name: '',
+            filecounter: 0,
             bot: '',
-            email: '',
             genre: '',
-            hashedpw: '',
-            genrelist: genres
+            genrelist: genres,
+            songProps: {
+                action: uploadsong,
+                data: {
+                    token: localStorage.token
+                },
+                onStart: (file) => {
+                    console.log('onStart', file);
+                },
+                onSuccess: (ret) => {
+                    console.log('Song Uploaded', ret);
+                    this.setState({filecounter: this.state.filecounter + 1})
+                },
+                onError: (err) => {
+                    console.log('Song Uploaded onError', err);
+                },
+                onProgress: (event) => {
+                    console.log(event.percent, "%");
+                    this.setState({loaded: event.percent})
+                }
+            },
+            picProps: {
+                action: uploadpicture,
+                data: {
+                    token: localStorage.token
+                },
+                onStart: (file) => {
+                    console.log('onStart', file);
+                },
+                onSuccess: (ret) => {
+                    console.log('Picture Uploaded', ret);
+                },
+                onError: (err) => {
+                    console.log(' Picture Uploaded onError', err);
+                },
+                onProgress: (event) => {
+                    console.log(event.percent, "%");
+                    this.setState({loaded: event.percent})
+                }
+            }
         }
         this.interval = null;
         this.saveBot = this.saveBot.bind(this);
@@ -25,8 +66,6 @@ export default class UploadFile extends Component {
         this.setPassword = this.setPassword.bind(this);
 
     }
-
-    compenentWillMount() {}
 
     componentDidMount() {
         clearInterval(this.interval);
@@ -43,7 +82,12 @@ export default class UploadFile extends Component {
 
     saveBot() {
         document.getElementById('blacklayer').classList.remove('show');
-        this.context.router.history.push('/thanks')
+        if (this.state.bot.length === 0 && this.state.genre.length === 0) {
+         alert("please enter a bot name and at least one genre");
+        } else {
+         this.context.router.history.push('/thanks')
+         // save it
+        }
         // let data = {
         //         title: this.state.title,
         //         genre: this.state.genre.split(','),
@@ -116,7 +160,7 @@ export default class UploadFile extends Component {
                 </div>
                 <div id="loading-bar"></div>
                 <div id="loaded-bar" style={{
-                    width: `${this.props.loaded}%`
+                    width: `${this.state.loaded}%`
                 }}></div>
                 <div className="content">
                     <h1>
@@ -124,7 +168,12 @@ export default class UploadFile extends Component {
                     </h1>
                     <div className="info-container">
                         <div className="left-image">
-                            <img src={require('../images/upload-image.png')} alt="Common Edits"/>
+                            <div className='pretty-input'>
+                                <Upload {...this.state.picProps}>
+                                    <img src={require('../images/upload-image.png')} alt="Common Edits"/>
+                                </Upload>
+                            </div>
+
                             <p>320 X 320</p>
                         </div>
                         <div className="right-inputs">
@@ -134,18 +183,21 @@ export default class UploadFile extends Component {
                             <input onFocus={() => this.moveStuff()} id="genre-input" onChange={(event) => this.setState({genre: event.target.value})} placeholder="Genre" value={this.state.genre} required type="text"/>
 
                         </div>
+
+
                         <div className='button-group'>
 
-                            <a onClick={() => this.saveBot()} id={this.state.name.length === 0
+                            <a onClick={() => this.saveBot()} id={this.state.bot.length === 0 && this.state.genre.length === 0
                                 ? 'inactive'
                                 : ''} className="save">
                                 Save
                             </a>
-                            <a onClick={() => this.saveBot()} id={this.state.name.length === 0
-                                ? 'inactive'
-                                : ''} className="saveandadd">
+                            <Upload {...this.state.songProps}>
+                            <a className="saveandadd">
                                 Upload Another
                             </a>
+                           </Upload>
+                           <h4>Bot Food Given: {this.state.filecounter}</h4>
                         </div>
                     </div>
                 </div>

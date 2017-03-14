@@ -74,9 +74,23 @@
     float: left;
 }
 
-.info-container .left-image img {
-    width: 90%;
+.info-container .left-image .pretty-input {
+ position: relative;
+ height: 100px;
 }
+
+.info-container .left-image img {
+    width: 100%;
+}
+
+.pretty-input #hide-input {
+ position: absolute;
+ left: 0;
+ width: 100px;
+ height: 100px;
+ opacity: 1;
+}
+
 
 .info-container .left-image p {
     font-size: 14px;

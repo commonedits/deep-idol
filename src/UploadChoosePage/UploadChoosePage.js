@@ -18,6 +18,7 @@ export default class UploadChoosePage extends Component {
             siberia_id: 0,
             initProps: {
                 action: upload,
+                multiple: true,
                 data: {
                     token: localStorage.token
                 },
@@ -29,13 +30,14 @@ export default class UploadChoosePage extends Component {
                     this.props.updateToken(ret['renewed_token']);
                     console.log('onSuccess', ret);
                     this.setState({siberia_id: ret.siberia_id})
+                    this.refs.uploadmodal.setState({filecounter: 1})
                 },
                 onError: (err) => {
                     console.log('onError', err);
                 },
                 onProgress: (event) => {
                     console.log(event.percent, "%");
-                    this.setState({loaded: event.percent})
+                    this.refs.uploadmodal.setState({loaded: event.percent})
                 }
             }
         }
@@ -61,8 +63,8 @@ export default class UploadChoosePage extends Component {
 
         return (
             <div className='left-content submitpage'>
-                <div id="blacklayer" className="show">
-                    <UploadFile siberia_id={this.state.siberia_id} loaded={this.state.loaded}/>
+                <div id="blacklayer" className="hidden">
+                    <UploadFile ref='uploadmodal' siberia_id={this.state.siberia_id} loaded={this.state.loaded}/>
                 </div>
                 <h2>Upload your {content}</h2>
                 <h3>You must own 100%</h3>

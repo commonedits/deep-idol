@@ -7,6 +7,10 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
+    "cloudinary": "^1.8.0",
+    "cloudinary-react": "^1.0.2",
+    "dotenv": "^4.0.0",
+    "fs": "0.0.1-security",
     "history": "^4.6.0",
     "rc-upload": "^2.3.4",
     "react": "^15.4.2",
