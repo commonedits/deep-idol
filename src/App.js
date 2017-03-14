@@ -113,7 +113,7 @@ export default class App extends Component {
         return (
 
             <div className='container'>
-                <Nav />
+                <Nav ref='navbar' />
                 {this.props.children}
             </div>
 

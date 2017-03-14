@@ -3,6 +3,7 @@ import './UploadChoosePage.css';
 import md5 from './md5'
 // import axios from 'axios';
 // const saveBotURL = "https://api.commonedits.com/v1/song/create"
+import genres from './genres'
 export default class UploadFile extends Component {
 
     constructor(props, context) {
@@ -14,137 +15,7 @@ export default class UploadFile extends Component {
             email: '',
             genre: '',
             hashedpw: '',
-            genrelist: [
-                "Blues",
-                "Earth Metal",
-                "Break Core",
-                "Classic Rock",
-                "Country",
-                "Dance",
-                "Disco",
-                "Funk",
-                "Grunge",
-                "Hip-Hop",
-                "Jazz",
-                "Metal",
-                "New Age",
-                "Oldies",
-                "Other",
-                "Pop",
-                "R&B",
-                "Rap",
-                "Reggae",
-                "Rock",
-                "Techno",
-                "Industrial",
-                "Alternative",
-                "Ska",
-                "Death Metal",
-                "Pranks",
-                "Soundtrack",
-                "Euro-Techno",
-                "Ambient",
-                "Trip-Hop",
-                "Vocal",
-                "Jazz+Funk",
-                "Fusion",
-                "Trance",
-                "Classical",
-                "Instrumental",
-                "Acid",
-                "House",
-                "Game",
-                "Sound Clip",
-                "Gospel",
-                "Noise",
-                "AlternRock",
-                "Bass",
-                "Soul",
-                "Punk",
-                "Space",
-                "Meditative",
-                "Instrumental Pop",
-                "Instrumental Rock",
-                "Ethnic",
-                "Gothic",
-                "Darkwave",
-                "Techno-Industrial",
-                "Electronic",
-                "Pop-Folk",
-                "Eurodance",
-                "Dream",
-                "Southern Rock",
-                "Comedy",
-                "Cult",
-                "Gangsta",
-                "Top 40",
-                "Christian Rap",
-                "Pop/Funk",
-                "Jungle",
-                "Native American",
-                "Cabaret",
-                "New Wave",
-                "Psychadelic",
-                "Rave",
-                "Showtunes",
-                "Trailer",
-                "Lo-Fi",
-                "Tribal",
-                "Acid Punk",
-                "Acid Jazz",
-                "Polka",
-                "Retro",
-                "Musical",
-                "Rock & Roll",
-                "Hard Rock",
-                "Folk",
-                "Folk-Rock",
-                "National Folk",
-                "Swing",
-                "Fast Fusion",
-                "Bebob",
-                "Latin",
-                "Revival",
-                "Celtic",
-                "Bluegrass",
-                "Avantgarde",
-                "Gothic Rock",
-                "Progressive Rock",
-                "Psychedelic Rock",
-                "Symphonic Rock",
-                "Slow Rock",
-                "Big Band",
-                "Chorus",
-                "Easy Listening",
-                "Acoustic",
-                "Humour",
-                "Speech",
-                "Chanson",
-                "Opera",
-                "Chamber Music",
-                "Sonata",
-                "Symphony",
-                "Booty Bass",
-                "Primus",
-                "Porn Groove",
-                "Satire",
-                "Slow Jam",
-                "Club",
-                "Tango",
-                "Samba",
-                "Folklore",
-                "Ballad",
-                "Power Ballad",
-                "Rhythmic Soul",
-                "Freestyle",
-                "Duet",
-                "Punk Rock",
-                "Drum Solo",
-                "Acapella",
-                "Euro-House",
-                "Samples",
-                "SFX"
-            ]
+            genrelist: genres
         }
         this.interval = null;
         this.saveBot = this.saveBot.bind(this);
@@ -155,8 +26,7 @@ export default class UploadFile extends Component {
 
     }
 
-    compenentWillMount() {
-    }
+    compenentWillMount() {}
 
     componentDidMount() {
         clearInterval(this.interval);
@@ -172,13 +42,13 @@ export default class UploadFile extends Component {
     }
 
     saveBot() {
-     document.getElementById('blacklayer').classList.remove('show');
-     this.context.router.history.push('/thanks')
-     // let data = {
-     //         title: this.state.title,
-     //         genre: this.state.genre.split(','),
-     //         siberia_id: this.props.siberia_id
-     //     }
+        document.getElementById('blacklayer').classList.remove('show');
+        this.context.router.history.push('/thanks')
+        // let data = {
+        //         title: this.state.title,
+        //         genre: this.state.genre.split(','),
+        //         siberia_id: this.props.siberia_id
+        //     }
         // axios.request({
         //     url: saveBotURL,
         //     method: 'post
@@ -209,17 +79,17 @@ export default class UploadFile extends Component {
         suggestion.classList.remove('show')
     }
 
-    genreHandler(genre, i){
-     let el = document.getElementById(`genre-${genre}`);
-     el.style.border = "1px solid #7c4dff";
-     let oldState = this.state.genre;
-     let newState = oldState;
-     if (oldState.length > 0){
-       newState = `${oldState}, ${genre}`;
-     } else {
-       newState = genre;
-     }
-     this.setState({genre: newState})
+    genreHandler(genre, i) {
+        let el = document.getElementById(`genre-${genre}`);
+        el.style.border = "1px solid #7c4dff";
+        let oldState = this.state.genre;
+        let newState = oldState;
+        if (oldState.length > 0) {
+            newState = `${oldState}, ${genre}`;
+        } else {
+            newState = genre;
+        }
+        this.setState({genre: newState})
     }
 
     passwordHandler(event, cb) {
@@ -229,8 +99,8 @@ export default class UploadFile extends Component {
         cb(hash);
     }
 
-    setPassword(hash){
-     this.setState({hashedpw: hash});
+    setPassword(hash) {
+        this.setState({hashedpw: hash});
     }
 
     render() {
@@ -258,16 +128,13 @@ export default class UploadFile extends Component {
                             <p>320 X 320</p>
                         </div>
                         <div className="right-inputs">
-                            <input onChange={(event) => this.setState({name: event.target.value})} placeholder="Name" type="text"/>
 
                             <input onChange={(event) => this.setState({bot: event.target.value})} placeholder="Bot Name" type="text"/>
 
                             <input onFocus={() => this.moveStuff()} id="genre-input" onChange={(event) => this.setState({genre: event.target.value})} placeholder="Genre" value={this.state.genre} required type="text"/>
 
-                            <input onChange={(event) => this.setState({email: event.target.value})} placeholder="Email Address" required type="email"/>
-
-                            <input required onChange={(event) => this.passwordHandler(event, this.setPassword)} placeholder="Password" type="password"/>
-                            <div>
+                        </div>
+                        <div className='button-group'>
 
                             <a onClick={() => this.saveBot()} id={this.state.name.length === 0
                                 ? 'inactive'
@@ -279,7 +146,6 @@ export default class UploadFile extends Component {
                                 : ''} className="saveandadd">
                                 Upload Another
                             </a>
-                           </div>
                         </div>
                     </div>
                 </div>
@@ -289,5 +155,5 @@ export default class UploadFile extends Component {
 }
 
 UploadFile.contextTypes = {
-  router: React.PropTypes.object
+    router: React.PropTypes.object
 };

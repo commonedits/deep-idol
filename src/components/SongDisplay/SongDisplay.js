@@ -10,55 +10,45 @@ import Wordpress from 'react-icons/lib/fa/wordpress';
 export default class SongDisplay extends Component {
     constructor(props, context) {
         super(props, context);
-        this.goToFullPageSong = this.goToFullPageSong.bind(this)
         this.playSong = this.playSong.bind(this)
-        this.goToArtistProfile = this.goToArtistProfile.bind(this)
-        this.goToSongProfile = this.goToSongProfile.bind(this)
         this.openSongMenu = this.openSongMenu.bind(this)
-        this.playSongFromThisPosition = this.playSongFromThisPosition.bind(this)
-        this.favoriteSong = this.favoriteSong.bind(this)
-        this.displaySongDetails = this.displaySongDetails.bind(this)
         this.shareSong = this.shareSong.bind(this)
         this.hideMenus = this.hideMenus.bind(this)
     }
 
-    componentWillMount() {
-    }
+    componentWillMount() {}
 
-    goToFullPageSong(song) {
-        this.hideMenus();
-    }
     shareSong(event, song) {
         this.hideMenus();
-        let element = document.getElementById(`share-${song.id}-menu`);
+        let element = document.getElementById(`share-${song.title}-menu`);
         element.classList.add('show');
         document.getElementById('black-layer').classList.add('show');
     }
+
     playSong(song) {
         this.hideMenus();
-        this.props.addSong(song);
+        console.log(song);
+        const playing = document.getElementsByTagName('audio');
+        console.log(playing);
+
+        for (var i = 0; i < playing.length; i++) {
+            playing[i].pause();
+            playing[i].currentTime = 0;
+        }
+        const audio = document.getElementById(`song-${song.title}`);
+        audio.play()
     }
-    goToArtistProfile(song) {
-        this.hideMenus();
-    }
-    goToSongProfile(song) {
-        this.hideMenus();
-    }
+
     openSongMenu(song) {
         this.hideMenus();
-        let element = document.getElementById(`song-${song.id}-menu`);
+        let element = document.getElementById(`song-${song.title}-menu`);
         element.classList.add('show');
         document.getElementById('black-layer').classList.add('show');
     }
     playSongFromThisPosition(song) {
         this.hideMenus();
     }
-    favoriteSong(song) {
-        this.hideMenus();
-    }
-    displaySongDetails(song) {
-        this.hideMenus();
-    }
+
     hideMenus() {
         document.getElementById('black-layer').classList.remove('show');
         let shown = document.getElementsByClassName('show');
@@ -71,7 +61,7 @@ export default class SongDisplay extends Component {
         let song = this.props.song;
         return (
             <div className='player-wrapper'>
-                <div id={`song-${song.id}-menu`} className='song-openmenu hidden'>
+                <div id={`song-${song.title}-menu`} className='song-openmenu hidden'>
                     <ul>
                         <li>
                             Tag Song</li>
@@ -82,15 +72,15 @@ export default class SongDisplay extends Component {
                         <li>Crowd Remix</li>
                     </ul>
                 </div>
-                <audio id={`song-${song.id}`}>
-                    <source src={song.song_url} type="audio/mpeg"/>
+                <audio id={`song-${song.title}`}>
+                    <source src={song.url} type="audio/mpeg"/>
                     Your browser does not support the audio element.
                 </audio>
                 <div className="header">
                     <img onClick={() => this.playSong(song)} alt="Common Edits" className="play" src={require('../../images/play-button.png')}/>
                     <div className="songinfo">
-                        <h4 onClick={() => this.goToArtistProfile(song)}>{song.artist_name}</h4>
-                        <p onClick={() => this.goToSongProfile(song)}>{song.title}</p>
+                        <h4>{song.artist_name}</h4>
+                        <p>{song.title}</p>
                     </div>
                     <img onClick={() => this.openSongMenu(song)} alt="Common Edits" className="song-menu" src={require('../../images/3-dots.png')}/>
                 </div>
@@ -101,7 +91,7 @@ export default class SongDisplay extends Component {
                             : '--:--'}</p>
                 </div>
                 <div className="footer">
-                    <div id={`share-${song.id}-menu`} className='share-dropdown hidden'>
+                    <div id={`share-${song.title}-menu`} className='share-dropdown hidden'>
                         <ul>
                             <li>
                                 <Facebook style={{
@@ -130,14 +120,14 @@ export default class SongDisplay extends Component {
                         </ul>
                     </div>
                     <div>
-                        <img onClick={() => this.favoriteSong(song)} alt="Common Edits" className="heart" src={require('../../images/heart.png')}/>
+                        <img alt="Common Edits" className="heart" src={require('../../images/heart.png')}/>
                         <h4 onClick={(event) => {
                             event.persist();
                             this.shareSong(event, song)
                         }}>SHARE
                             <Caret/></h4>
                     </div>
-                    <FaChevronUp onClick={() => this.displaySongDetails(song)} className="upicon"/>
+                    <FaChevronUp className="upicon"/>
                 </div>
             </div>
         )

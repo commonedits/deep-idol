@@ -17,6 +17,7 @@ export default class HomePage extends Component {
     }
 
     componentDidMount(){
+     console.log(this.refs);
     }
 
     componentWillMount(){

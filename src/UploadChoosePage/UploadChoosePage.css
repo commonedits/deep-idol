@@ -46,7 +46,7 @@
     position: absolute;
     width: 95vw;
     left: 2.5vw;
-    height: 85vh;
+    height: 65vh;
     background-color: #303030;
     	box-shadow: 0 0 4px 0 rgba(100, 100, 100, 0.12), 0 4px 4px 0 rgba(100, 100, 100, 0.24);
 }
@@ -62,7 +62,7 @@
 
 .info-container {
     width: 100%;
-    height: 40vh;
+    height: 30vh;
     margin-top: -10px;
     /*background-color: yellow;*/
 }
@@ -85,7 +85,6 @@
 
 .info-container .right-inputs {
     /*background-color: green;*/
-    height: 100%;
     width: 60%;
     float: right;
 }
