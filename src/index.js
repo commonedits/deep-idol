@@ -12,6 +12,7 @@ import UploadChoosePage from './UploadChoosePage/UploadChoosePage'
 import FlowNotesChoosePage from './FlowNotesChoosePage/FlowNotesChoosePage'
 import ThankYouPage from './ThankYouPage/ThankYouPage'
 import FlowNotes from './FlowNotes/FlowNotes.js'
+import Terms from './Terms/Terms.js'
 
 ReactDOM.render((
     <Router>
@@ -23,6 +24,7 @@ ReactDOM.render((
             <Route exact path='/flownotes' component={FlowNotesChoosePage}/>
             <Route path='/flownotes/create' component={FlowNotes}/>
             <Route path='/thanks' component={ThankYouPage}/>
+            <Route path='/terms' component={Terms}/>
         </App>
     </Router>
 ), document.getElementById('root'));

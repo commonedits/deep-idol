@@ -59,7 +59,7 @@ a {
 .left-content {
  width: 75%;
  margin-left: 20px;
- margin-top: 130px;
+ margin-top: 110px;
 }
 
 .center-content {
@@ -120,4 +120,26 @@ input {
     padding-left: 15px;
     margin-bottom: 25px;
     outline: none;
+}
+
+input[type=checkbox]  {
+ margin-top: 0;
+ margin-bottom: 0;
+ width: 20px;
+ background-color: transparent;
+}
+
+@media (max-width: 320px)
+{
+ h1 {
+  font-size: 28px;
+ }
+
+ h2, h3 {
+  font-size: 18px;
+ }
+
+ textarea {
+  height: 100px;
+ }
 }

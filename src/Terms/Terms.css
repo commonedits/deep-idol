@@ -1,0 +1,97 @@
+.revenue {
+ margin-top: 18px;
+ height: 100px;
+ display: flex;
+ align-items: center;
+ justify-content: space-around;
+}
+
+.tnc {
+margin-top: 80px;
+}
+
+.revenue .pull-right {
+ height: 90%;
+}
+
+.revenue .pull-right > *{
+ margin: 3px;
+ margin-left: -45px;
+}
+
+.revenue .pull-left img {
+ height: 115px;
+}
+
+textarea {
+ font-size: 14px;
+ width: 100vw;
+ height: 120px;
+ border-style: hidden;
+ color: white;
+ margin-top: 24px;
+ background-color: transparent;
+ padding: 5px;
+ resize: none;
+ outline: none;
+}
+
+.terms-buttons {
+ display: flex;
+ flex-direction: column;
+ /*align-items: center;*/
+ justify-content: center;
+ width: 40%;
+ margin: auto;
+ margin-top: 0;
+}
+
+.terms-buttons .checkbox-wrapper {
+ display: flex;
+ align-items: center;
+ width: 100%;
+}
+
+.terms-buttons .checkbox-wrapper .cb-wrap {
+margin-top: 20px;
+}
+
+input[type=checkbox]  {
+ margin-top: 0;
+ margin-bottom: 30px;
+ width: 20px;
+ background-color: transparent;
+}
+
+label {
+ color: white;
+ font-family: "Levenim MT";
+ width: 80%;
+ margin: 0 auto 0 10px;
+ float: right;
+}
+
+.terms-buttons a {
+ margin-top: -20px;
+ border: 1px solid white;
+ border-radius: 2px;
+ padding: 4px 16px;
+ text-align: center;
+}
+
+.terms-buttons .unchecked {
+ background-color: lightgray;
+ color: gray;
+ border: none;
+}
+
+@media (max-width: 320px)
+{
+ .tnc h1 {
+  font-size: 28px;
+ }
+
+ textarea {
+  height: 100px;
+ }
+}

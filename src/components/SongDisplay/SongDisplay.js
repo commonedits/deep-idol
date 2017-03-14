@@ -84,12 +84,14 @@ export default class SongDisplay extends Component {
                     </div>
                     <img onClick={() => this.openSongMenu(song)} alt="Common Edits" className="song-menu" src={require('../../images/3-dots.png')}/>
                 </div>
-                <div className="waveform">
-                    <img onClick={() => this.playSongFromThisPosition(song)} alt="Common Edits" className="waves" src={require('../../images/playing-waveform.png')}/>
+                {song.waveform && <div className="waveform">
+                     <img onClick={() => this.playSongFromThisPosition(song)} alt="Common Edits" className="waves" src={{uri: song.waveform}}/>
                     <p>{song.duration
                             ? song.duration
                             : '--:--'}</p>
-                </div>
+                </div>}
+                {!song.waveform && <div className="no-waveform">
+                </div>}
                 <div className="footer">
                     <div id={`share-${song.title}-menu`} className='share-dropdown hidden'>
                         <ul>

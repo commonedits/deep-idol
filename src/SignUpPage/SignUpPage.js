@@ -4,6 +4,7 @@ import md5 from './md5';
 import axios from 'axios';
 const signup = "https://api.commonedits.com/v1/user/signup"
 const login = "https://api.commonedits.com/v1/user/login"
+import {Link} from 'react-router-dom'
 
 export default class SignUpPage extends Component {
 
@@ -31,10 +32,10 @@ export default class SignUpPage extends Component {
                 artist_name: this.state.artist
             }
             axios.post(signup, data).then((res) => {
-             localStorage.uid = res.data.user.id
-             localStorage.email = res.data.user.email
-             localStorage.token = res.data.token
-             this.context.router.history.push('/submit', {account: res.data})
+                localStorage.uid = res.data.user.id
+                localStorage.email = res.data.user.email
+                localStorage.token = res.data.token
+                this.context.router.history.push('/submit', {account: res.data})
             })
         })
     }
@@ -47,10 +48,10 @@ export default class SignUpPage extends Component {
                 password: hash
             }
             axios.post(login, data).then((res) => {
-             localStorage.uid = res.data.user.id
-             localStorage.email = res.data.user.email
-             localStorage.token = res.data.token
-             this.context.router.history.push('/submit', {account: res.data})
+                localStorage.uid = res.data.user.id
+                localStorage.email = res.data.user.email
+                localStorage.token = res.data.token
+                this.context.router.history.push('/submit', {account: res.data})
             })
         })
 
@@ -74,7 +75,7 @@ export default class SignUpPage extends Component {
 
                 <div id="signup-inputs" className="input-container">
 
-                    <input onChange={(event) => this.setState({artist: event.target.value})} value={this.state.artist} placeholder="Artist Name"  type="text"/>
+                    <input onChange={(event) => this.setState({artist: event.target.value})} value={this.state.artist} placeholder="Artist Name" type="text"/>
 
                     <input onChange={(event) => this.setState({email: event.target.value})} value={this.state.email} placeholder="Email Adress" type="email"/>
 
@@ -89,7 +90,15 @@ export default class SignUpPage extends Component {
                     <a onClick={() => {
                         this.setState({hasAccount: true})
                     }} className="stacked-ghost-button toggle">I already have an account</a>
+                    <div className="checkbox-wrapper">
 
+                        <input onClick={() => this.setState({
+                            checkbox: !this.state.checkbox
+                        })} type="checkbox" id="check" name="check" required readOnly={true}/>
+
+                        <label htmlFor="check">Check if you agree with our <Link to='/terms'>Terms and Conditions</Link>
+                        </label>
+                    </div>
                 </div>
             </div>
         )
@@ -99,9 +108,9 @@ export default class SignUpPage extends Component {
         return (
             <div className="left-content loginpage">
 
-             <h1>Welcome Back</h1>
-             <h2>Please Log In</h2>
-             <h3>Continue to train your bot</h3>
+                <h1>Welcome Back</h1>
+                <h2>Please Log In</h2>
+                <h3>Continue to train your bot</h3>
 
                 <div className="input-container">
 
@@ -115,9 +124,9 @@ export default class SignUpPage extends Component {
                     <a className='stacked-ghost-button continue' onClick={() => this.login()}>CONTINUE</a>
                     {/* <FacebookLogin textButton="LOGIN WITH FACEBOOK" id="facebook" appId="378299952548013" autoLoad={true} fields="name,email,picture,friends,music.listens,location,locale" scopes="public_profile,user_friends,email,user_actions.music,user_location" callback={this.responseFacebook} cssClass="facebook"/> */}
 
-                        <a className='stacked-ghost-button toggle' onClick={() => {
-                            this.setState({hasAccount: false})
-                        }}>I don't have an account</a>
+                    <a className='stacked-ghost-button toggle' onClick={() => {
+                        this.setState({hasAccount: false})
+                    }}>I don't have an account</a>
                 </div>
 
             </div>

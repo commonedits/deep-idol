@@ -21,7 +21,8 @@ export default class UploadFile extends Component {
             songProps: {
                 action: uploadsong,
                 data: {
-                    token: localStorage.token
+                    token: localStorage.token,
+                    type: '',
                 },
                 onStart: (file) => {
                     console.log('onStart', file);
@@ -29,6 +30,7 @@ export default class UploadFile extends Component {
                 onSuccess: (ret) => {
                     console.log('Song Uploaded', ret);
                     this.setState({filecounter: this.state.filecounter + 1})
+                    this.sendToSocan(ret);
                 },
                 onError: (err) => {
                     console.log('Song Uploaded onError', err);
@@ -64,6 +66,7 @@ export default class UploadFile extends Component {
         this.unMoveStuff = this.unMoveStuff.bind(this);
         this.passwordHandler = this.passwordHandler.bind(this);
         this.setPassword = this.setPassword.bind(this);
+        this.sendToSocan = this.sendToSocan.bind(this);
 
     }
 
@@ -107,6 +110,10 @@ export default class UploadFile extends Component {
         // }).catch((err) => {
         //  alert("there was an error completing your song")
         // })
+
+    }
+
+    sendToSocan(){
 
     }
 
@@ -197,7 +204,7 @@ export default class UploadFile extends Component {
                                 Upload Another
                             </a>
                            </Upload>
-                           <h4>Bot Food Given: {this.state.filecounter}</h4>
+                           <h4>Files Uploaded: {this.state.filecounter}</h4>
                         </div>
                     </div>
                 </div>

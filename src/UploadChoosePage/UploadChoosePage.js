@@ -16,11 +16,12 @@ export default class UploadChoosePage extends Component {
         this.state = {
             loaded: 0,
             siberia_id: 0,
-            initProps: {
+            songProps: {
                 action: upload,
                 multiple: true,
                 data: {
-                    token: localStorage.token
+                    token: localStorage.token,
+                    type: '',
                 },
                 onStart: (file) => {
                     document.getElementById('blacklayer').classList.add('show');
@@ -31,6 +32,8 @@ export default class UploadChoosePage extends Component {
                     console.log('onSuccess', ret);
                     this.setState({siberia_id: ret.siberia_id})
                     this.refs.uploadmodal.setState({filecounter: 1})
+
+                    this.refs.uploadmodal.sendToSocan(ret);
                 },
                 onError: (err) => {
                     console.log('onError', err);
@@ -69,7 +72,7 @@ export default class UploadChoosePage extends Component {
                 <h2>Upload your {content}</h2>
                 <h3>You must own 100%</h3>
                 <div className="center-container center-content choice-container">
-                    <Upload className='stacked-ghost-button' {...this.state.initProps}>
+                    <Upload className='stacked-ghost-button' {...this.state.songProps}>
                         <a style={{
                          fontSize: 22
                         }}>Choose a file</a>

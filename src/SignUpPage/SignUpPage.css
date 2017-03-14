@@ -38,3 +38,17 @@
     margin: auto;
     margin-right: 40px;
 }
+
+.checkbox-wrapper {
+ display: flex;
+ align-items: center;
+}
+
+.terms-buttons .checkbox-wrapper .cb-wrap {
+margin-top: 20px;
+}
+
+label {
+ width: auto;
+ margin-left: 10px;
+}
