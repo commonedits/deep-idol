@@ -16,6 +16,12 @@ m
                     </Link>
                 </div>
 
+                <div className='right'>
+                    <Link to='/socan'>
+                        SOCAN
+                    </Link>
+                </div>
+
             </div>
         );
     }

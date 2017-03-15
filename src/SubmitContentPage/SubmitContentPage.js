@@ -8,8 +8,7 @@ export default class SubmitContentPage extends Component {
     render() {
         return (
             <div className='left-content submitpage'>
-                <h2>Step Two: Submit Content</h2>
-                <h3>You must own 100%</h3>
+                <h2>Submit Original Content</h2>
                 <div className="center-container center-content choice-container">
                     <Link className='stacked-ghost-button' to='/upload/acapella'>Acapella</Link>
                     <Link className='stacked-ghost-button' to='/upload/instrumental'>Instrumental</Link>

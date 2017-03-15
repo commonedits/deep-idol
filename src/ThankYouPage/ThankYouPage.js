@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './ThankYouPage.css';
 import SongDisplay from '../components/SongDisplay/SongDisplay'
-// import {Link} from 'react-router-dom'import axios from 'axios';
+import {Link} from 'react-router-dom'
 import axios from 'axios';
 
 const getSongs = 'https://api.commonedits.com/v1/deepidol/frontpage';

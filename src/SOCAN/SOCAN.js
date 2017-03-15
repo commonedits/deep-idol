@@ -8,21 +8,21 @@ export default class MyComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            GIVEN_NAMES:'Tosin',
-            MIDDLE_NAME:'N',
-            LAST_NAME:'Awofeso',
-            DATE_OF_BIRTH:'1988-01-04',
-            STREET1:'12207 Donington Dr',
-            CITY:'Austin',
-            PROVINCE:'TX',
+            GIVEN_NAMES:'',
+            MIDDLE_NAME:'',
+            LAST_NAME:'',
+            DATE_OF_BIRTH:'',
+            STREET1:'',
+            CITY:'',
+            PROVINCE:'',
             COUNTRY:'USA',
-            POSTAL_CODE:'78753',
-            PHONE_NO1:'5125526495',
-            EMAIL_ADDRESS:'midastouchproductions@gmail.com',
-            EMAIL_ADDRESS_VERIFY:'midastouchproductions@gmail.com',
-            USER_ID:'midastouchprd',
-            PASSWORD:'password',
-            PASSWORD_VERIFY:'password',
+            POSTAL_CODE:'',
+            PHONE_NO1:'',
+            EMAIL_ADDRESS:'',
+            EMAIL_ADDRESS_VERIFY:'',
+            USER_ID:'',
+            PASSWORD:'',
+            PASSWORD_VERIFY:'',
             HEAR_OF_SOCAN:'Common Edits',
             LANGUAGE_PREFERENCE:'E',
             TERMS:'Y'
@@ -43,7 +43,7 @@ export default class MyComponent extends Component {
 
     render() {
         return (
-         <div className="left-content socan">
+         <div className="socan">
              <h2 style={{
               marginTop: -30,
               marginBottom: 12,
@@ -73,6 +73,8 @@ export default class MyComponent extends Component {
 
 
              </div>
+
+             <p>SOCAN will be in touch to complete your account</p>
              <div id="signup" className="button-container">
 
                  <a className='stacked-ghost-button continue' onClick={() => this.sendToSocan()}>CONTINUE</a>
