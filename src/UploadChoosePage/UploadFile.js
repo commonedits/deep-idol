@@ -200,6 +200,7 @@ export default class UploadFile extends Component {
                                  }
                                 </Upload>
                             </div>
+
                         </div>
                         <div className="right-inputs">
 

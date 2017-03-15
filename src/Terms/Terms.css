@@ -1,5 +1,5 @@
 .revenue {
- margin-top: 18px;
+ margin-top: 28px;
  height: 100px;
  display: flex;
  align-items: center;
@@ -83,6 +83,23 @@ label {
  background-color: lightgray;
  color: gray;
  border: none;
+}
+
+.policies-wrapper {
+ margin-top: 30px;
+ text-align: center;
+}
+
+.scrollable {
+ width: 80%;
+ margin: 0 auto;
+ margin-bottom: 35px;
+ border: 1px white solid;
+ padding: 18px;
+}
+
+.scrollable p {
+ text-align: justify;
 }
 
 @media (max-width: 320px)

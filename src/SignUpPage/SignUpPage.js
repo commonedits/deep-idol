@@ -15,8 +15,6 @@ export default class SignUpPage extends Component {
             email: '',
             password: '',
             artist: '',
-            head: 'Step One: Create an Account',
-            subhead: 'This is so we know which bot belongs to who'
         }
 
         this.signup = this.signup.bind(this);
@@ -68,10 +66,10 @@ export default class SignUpPage extends Component {
 
         return (
             <div className="left-content signuppage">
-
-                <h1>Step One:</h1>
-                <h2>Create an Account</h2>
-                <h3>This is so we know which bot belongs to who</h3>
+                <h2 style={{
+                 marginTop: -30,
+                 marginBottom: 12,
+                }}>Create an Account</h2>
 
                 <div id="signup-inputs" className="input-container">
 
@@ -80,6 +78,13 @@ export default class SignUpPage extends Component {
                     <input onChange={(event) => this.setState({email: event.target.value})} value={this.state.email} placeholder="Email Adress" type="email"/>
 
                     <input onChange={(event) => this.setState({password: event.target.value})} value={this.state.password} placeholder="Password" type="password"/> {/* <input onChange={(event) => this.setState({confirm: event.target.value})} placeholder="Confirm Password" type="password"/> */}
+                    <div>
+                     <input onClick={() => this.setState({
+                      checkbox: !this.state.checkbox
+                     })} type="checkbox" id="check" name="check" required readOnly={true}/>
+                     <span> Agree to <Link to='/terms'>Terms and Conditions</Link>
+                    </span>
+                   </div>
 
                 </div>
                 <div id="signup" className="button-container">
@@ -89,16 +94,8 @@ export default class SignUpPage extends Component {
 
                     <a onClick={() => {
                         this.setState({hasAccount: true})
-                    }} className="stacked-ghost-button toggle">I already have an account</a>
-                    <div className="checkbox-wrapper">
+                    }} className="toggle">I already have an account</a>
 
-                        <input onClick={() => this.setState({
-                            checkbox: !this.state.checkbox
-                        })} type="checkbox" id="check" name="check" required readOnly={true}/>
-
-                        <label htmlFor="check">Check if you agree with our <Link to='/terms'>Terms and Conditions</Link>
-                        </label>
-                    </div>
                 </div>
             </div>
         )
@@ -108,9 +105,7 @@ export default class SignUpPage extends Component {
         return (
             <div className="left-content loginpage">
 
-                <h1>Welcome Back</h1>
                 <h2>Please Log In</h2>
-                <h3>Continue to train your bot</h3>
 
                 <div className="input-container">
 
@@ -124,7 +119,7 @@ export default class SignUpPage extends Component {
                     <a className='stacked-ghost-button continue' onClick={() => this.login()}>CONTINUE</a>
                     {/* <FacebookLogin textButton="LOGIN WITH FACEBOOK" id="facebook" appId="378299952548013" autoLoad={true} fields="name,email,picture,friends,music.listens,location,locale" scopes="public_profile,user_friends,email,user_actions.music,user_location" callback={this.responseFacebook} cssClass="facebook"/> */}
 
-                    <a className='stacked-ghost-button toggle' onClick={() => {
+                    <a className='toggle' onClick={() => {
                         this.setState({hasAccount: false})
                     }}>I don't have an account</a>
                 </div>
