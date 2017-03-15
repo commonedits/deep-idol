@@ -1,20 +1,23 @@
 import React, {Component} from 'react';
 import './UploadChoosePage.css';
 import md5 from './md5'
-// import axios from 'axios';
+import axios from 'axios';
 // const saveBotURL = "https://api.commonedits.com/v1/song/create"
 import genres from './genres'
 import Upload from 'rc-upload';
 import cloudinary from 'cloudinary'
 const uploadpicture = "https://api.commonedits.com/v1/user/picture_upload"
-const uploadsong = "https://api.commonedits.com/v1/song/upload"
+const uploadsong = "https://api.commonedits.com/v1/song/upload";
+const saveBotURL = "https://api.commonedits.com/v1/song/upload";
 export default class UploadFile extends Component {
 
     constructor(props, context) {
         super(props, context)
         this.state = {
             loaded: 0,
-            filecounter: 0,
+            image: null,
+            filecounter: 1,
+            siberiaids: [],
             bot: '',
             genre: '',
             genrelist: genres,
@@ -29,8 +32,10 @@ export default class UploadFile extends Component {
                 },
                 onSuccess: (ret) => {
                     console.log('Song Uploaded', ret);
+                    this.addId(ret.siberia_id)
+                    localStorage.token = ret["renewed_token"]
                     this.setState({filecounter: this.state.filecounter + 1})
-                    this.sendToSocan(ret);
+
                 },
                 onError: (err) => {
                     console.log('Song Uploaded onError', err);
@@ -50,6 +55,7 @@ export default class UploadFile extends Component {
                 },
                 onSuccess: (ret) => {
                     console.log('Picture Uploaded', ret);
+                    this.setState({image: ret.url})
                 },
                 onError: (err) => {
                     console.log(' Picture Uploaded onError', err);
@@ -83,6 +89,12 @@ export default class UploadFile extends Component {
         // }, 50);
     }
 
+    addId(sid){
+     let oldids = this.state.siberiaids;
+     let newIDS = oldids.push(sid);
+     this.setState({siberiaids: newIDS})
+    }
+
     saveBot() {
         document.getElementById('blacklayer').classList.remove('show');
         if (this.state.bot.length === 0 && this.state.genre.length === 0) {
@@ -90,26 +102,29 @@ export default class UploadFile extends Component {
         } else {
          this.context.router.history.push('/thanks')
          // save it
+         let data = {
+          bot: this.state.bot,
+          genre: this.state.genre.split(','),
+          siberia_id: this.props.siberia_id
+         }
+         axios.request({
+          url: saveBotURL,
+          method: 'post',
+          data: {
+           token: localStorage.token,
+           title: this.state.title,
+           genre: this.state.genre.split(','),
+           siberia_id: this.state.siberiaids
+          }
+         }).then((res) => {
+          if(res.data["renewed_token"]) {
+          localStorage.token = res.data["renewed_token"]
+         }
+          document.getElementById('blacklayer').classList.remove('show');
+         }).catch((err) => {
+          alert("there was an error completing your song")
+         })
         }
-        // let data = {
-        //         title: this.state.title,
-        //         genre: this.state.genre.split(','),
-        //         siberia_id: this.props.siberia_id
-        //     }
-        // axios.request({
-        //     url: saveBotURL,
-        //     method: 'post
-        //     data: {
-        //         token: localStorage.token,
-        //         title: this.state.title,
-        //         genre: this.state.genre.split(','),
-        //         siberia_id: this.props.siberia_id
-        //     }
-        // }).then((res) => {
-        //  document.getElementById('blacklayer').classList.remove('show');
-        // }).catch((err) => {
-        //  alert("there was an error completing your song")
-        // })
 
     }
 
@@ -177,11 +192,14 @@ export default class UploadFile extends Component {
                         <div className="left-image">
                             <div className='pretty-input'>
                                 <Upload {...this.state.picProps}>
+                                 {this.state.image &&
+                                    <img src={this.state.image} alt="Common Edits"/>
+                                 }
+                                 {!this.state.image &&
                                     <img src={require('../images/upload-image.png')} alt="Common Edits"/>
+                                 }
                                 </Upload>
                             </div>
-
-                            <p>320 X 320</p>
                         </div>
                         <div className="right-inputs">
 

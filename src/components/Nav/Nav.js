@@ -16,10 +16,6 @@ m
                     </Link>
                 </div>
 
-                <div className='right'>
-                    <a>Listen</a>
-                </div>
-
             </div>
         );
     }
