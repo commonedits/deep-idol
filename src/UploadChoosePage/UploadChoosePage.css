@@ -44,15 +44,15 @@
 
 .track-info {
     position: absolute;
-    width: 95vw;
-    left: 2.5vw;
-    height: 65vh;
+    width: 100vw;
+    height: 100vh;
     background-color: #303030;
     	box-shadow: 0 0 4px 0 rgba(100, 100, 100, 0.12), 0 4px 4px 0 rgba(100, 100, 100, 0.24);
 }
 
 .track-info .content {
     margin-top: 30px;
+    padding: 20px;
 }
 
 .track-info .content h1 {
@@ -68,10 +68,14 @@
 }
 
 .info-container .left-image {
-    /*background-color: pink;*/
-    height: 100%;
+    background-color: black;
+    height: 57%;
     width: 35%;
     float: left;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .info-container .left-image .pretty-input {
@@ -80,7 +84,11 @@
 }
 
 .info-container .left-image img {
-    width: 100%;
+height: 100%;
+
+}
+.info-container .left-image {
+
 }
 
 .pretty-input #hide-input {
@@ -134,8 +142,8 @@
     flex-direction: column;
     align-items: center;
     position: absolute;
-    width: 80vw;
-    padding: 28px;
+    width: 95vw;
+    margin-left: 2.5vw;
     background-color: #222;
     height: 60vh;
     overflow-y: scroll;
@@ -246,8 +254,7 @@
  }
 
  .info-container .left-image img {
-     width: 70%;
-     padding-left: 60px
+     width: 100%;
  }
 
  .pretty-input #hide-input {
@@ -281,7 +288,8 @@
   width: 70%;
   text-align: center;
   margin-bottom: 20px;
-  margin-right: 15%
+  margin-right: 15%;
+  margin-top: 30px;
  }
 
  .info-container .saveandadd {
@@ -322,7 +330,7 @@
      background-color: black;
      width: 100vw;
      margin: auto;
-     bottom: 0px;
+     top: 0px;
      right: 0;
      height: 30px;
      display: block;

@@ -65,7 +65,7 @@ export default class SignUpPage extends Component {
     renderSignUp() {
 
         return (
-            <div className="left-content signuppage">
+            <div className="signuppage">
                 <h2 style={{
                  marginTop: -30,
                  marginBottom: 12,
@@ -103,11 +103,11 @@ export default class SignUpPage extends Component {
 
     renderLogIn() {
         return (
-            <div className="left-content loginpage">
+            <div className="signuppage">
 
                 <h2>Please Log In</h2>
 
-                <div className="input-container">
+                <div id="signup-inputs" className="input-container">
 
                     <input onChange={(event) => this.setState({email: event.target.value})} value={this.state.email} className="input-space" placeholder="Email Adress" type="text"/>
 

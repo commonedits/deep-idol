@@ -112,8 +112,9 @@ a {
 
 input {
     font-family: "Levenim MT";
-    width: 75%;
-    height: 50px;
+    width: 85%;
+    height: 40px;
+    line-height: normal;
     border-style: hidden;
     color: white;
     background-color: #424242;
