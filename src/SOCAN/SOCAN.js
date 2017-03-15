@@ -74,7 +74,7 @@ export default class MyComponent extends Component {
 
              </div>
 
-             <p>SOCAN will be in touch to complete your account</p>
+             <p style={{textAlign: 'center'}}>SOCAN will be in touch to complete your account</p>
              <div id="signup" className="button-container">
 
                  <a className='stacked-ghost-button continue' onClick={() => this.sendToSocan()}>CONTINUE</a>
