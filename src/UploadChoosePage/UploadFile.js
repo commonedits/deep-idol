@@ -15,6 +15,7 @@ export default class UploadFile extends Component {
         super(props, context)
         this.state = {
             loaded: 0,
+            finished: true,
             image: null,
             filecounter: 1,
             siberiaids: [],
@@ -29,13 +30,14 @@ export default class UploadFile extends Component {
                 },
                 onStart: (file) => {
                     console.log('onStart', file);
+                    this.setState({filecounter: this.state.filecounter + 1, finished: false})
                 },
                 onSuccess: (ret) => {
                     console.log('Song Uploaded', ret);
                     localStorage.token = ret["renewed_token"]
                     this.addId(ret.siberia_id)
                     localStorage.token = ret["renewed_token"]
-                    this.setState({filecounter: this.state.filecounter + 1})
+                    this.setState({filecounter: this.state.filecounter + 1, finished: true})
 
                 },
                 onError: (err) => {
@@ -101,8 +103,8 @@ export default class UploadFile extends Component {
 
     saveBot() {
         document.getElementById('blacklayer').classList.remove('show');
-        if (this.state.bot.length === 0 && this.state.genre.length === 0) {
-         alert("please enter a bot name and at least one genre");
+        if (this.state.finished === false) {
+         alert("please wait until song finishes uploading");
         } else {
 
          // save it

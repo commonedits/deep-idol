@@ -159,14 +159,14 @@
     position: fixed;
     background-color: black;
     width: 100vw;
-    top: 0px;
+    bottom: 0px;
     left: 0;
-    height: 30px;
+    height: 20px;
     display: block;
-    border: none;
+    border: 3px white solid;
     clear: both;
     text-align: center;
-    padding-top: 30px;
+    padding: 10px;
     	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.12), 0 4px 4px 0 rgba(0, 0, 0, 0.24);
 }
 
@@ -320,9 +320,9 @@
  #close-button {
      position: fixed;
      background-color: black;
-     width: 20vw;
+     width: 100vw;
      margin: auto;
-     top: 0px;
+     bottom: 0px;
      right: 0;
      height: 30px;
      display: block;
