@@ -13,6 +13,7 @@ import FlowNotesChoosePage from './FlowNotesChoosePage/FlowNotesChoosePage'
 import ThankYouPage from './ThankYouPage/ThankYouPage'
 import FlowNotes from './FlowNotes/FlowNotes.js'
 import Terms from './Terms/Terms.js'
+import SOCAN from './SOCAN/SOCAN.js'
 
 ReactDOM.render((
     <Router>
@@ -25,6 +26,7 @@ ReactDOM.render((
             <Route path='/flownotes/create' component={FlowNotes}/>
             <Route path='/thanks' component={ThankYouPage}/>
             <Route path='/terms' component={Terms}/>
+            <Route path='/socan' component={SOCAN}/>
         </App>
     </Router>
 ), document.getElementById('root'));
