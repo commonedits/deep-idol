@@ -65,7 +65,7 @@ export default class UploadChoosePage extends Component {
 
         return (
             <div className='left-content submitpage'>
-                <div id="blacklayer" className="hidden">
+                <div id="blacklayer" className="show">
                     <UploadFile ref='uploadmodal' siberia_id={this.state.siberia_id} loaded={this.state.loaded}/>
                 </div>
                 <h2>Upload your {content}</h2>

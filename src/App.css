@@ -129,6 +129,7 @@ input[type=checkbox]  {
  background-color: transparent;
 }
 
+/*iphone 4*/
 @media (max-width: 320px)
 {
  h1 {
@@ -142,4 +143,135 @@ input[type=checkbox]  {
  textarea {
   height: 100px;
  }
+}
+
+/*Desktop*/
+@media (min-width: 500px)
+{
+
+ h1 {
+     font-size: 72px;
+     font-weight: bold;
+     line-height: 1.1;
+     margin: 0;
+ }
+
+ h2 {
+     font-size: 36px;
+     font-weight: bold;
+     line-height: normal;
+     margin: -10px 0;
+ }
+
+ h3 {
+     font-size: 28px;
+     font-weight: normal;
+     line-height: 1.75;
+     opacity: 0.7
+ }
+
+ p {
+     font-size: 14px;
+     opacity: 0.5;
+     font-weight: normal;
+     margin: 8px 0;
+ }
+
+ a {
+     color: white;
+     text-decoration: none;
+     font-size: 22px;
+ }
+
+ .ghost-button {
+  border: 1px white solid;
+  border-radius: 3px;
+  padding: 12px 40px;
+ }
+
+ .stacked-ghost-button {
+  display: block;
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 22px;
+  border: 2px solid white;
+  border-radius: 3px;
+  width: 100%;
+  padding: 12px 0;
+  background-color: #292929;
+ }
+
+ .left-content {
+  width: 75%;
+  margin-left: 60px;
+  margin-top: 130px;
+ }
+
+ .center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 130px;
+ }
+
+ .center-container {
+  margin: auto;
+ }
+
+ .hidden {
+     opacity: 0;
+     transition: 0.5s;
+     z-index: -100
+ }
+
+ .show {
+     opacity: 1;
+     transition: 0.5s;
+     z-index: 1;
+ }
+
+ @font-face {
+     font-family: 'Levenim MT';
+     font-weight: normal;
+     src: local('Levenim MT'), url('./fonts/ufonts.com_levenim-mt.woff') format('woff');
+ }
+
+ @font-face {
+     font-family: 'Levenim MT';
+     font-weight: bold;
+     src: local('Levenim MT'), url('./fonts/lvnmbd.woff') format('woff');
+ }
+
+ .container {
+     margin-top: 60px;
+     width: 100%;
+ }
+
+ .noscroll {
+     overflow-y: hidden;
+ }
+
+ .fine-print {
+  margin-top: 36px;
+ }
+
+ input {
+     font-family: "Levenim MT";
+     width: 50%;
+     height: 70px;
+     border-style: hidden;
+     color: white;
+     background-color: #424242;
+     padding-left: 15px;
+     margin-bottom: 25px;
+     outline: none;
+ }
+
+ input[type=checkbox]  {
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 20px;
+  background-color: transparent;
+ }
+
 }

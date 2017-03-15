@@ -177,3 +177,168 @@
     left: 10px;
     transition: 2s;
 }
+
+@media (min-width: 500px)
+{
+
+ #loading-bar {
+     position: absolute;
+     width: 100%;
+     height: 15px;
+     background-color: gray;
+     z-index: -10;
+     top: 0;
+ }
+
+ #loaded-bar {
+     position: absolute;
+     height: 15px;
+     background-color: #7c4dff;
+     z-index: 10;
+     top: 0;
+     transition: 0.2s
+ }
+
+ #blacklayer {
+     position: fixed;
+     top: 0;
+     left: 0;
+     height: 100vh;
+     width: 100vw;
+     background-color: rgba(0, 0, 0, 0.7);
+ }
+
+ .track-info {
+     position: absolute;
+     width: 65vw;
+     left: calc((100vw - 65vw)/2);
+     height: 85vh;
+     background-color: #303030;
+     	box-shadow: 0 0 4px 0 rgba(100, 100, 100, 0.12), 0 4px 4px 0 rgba(100, 100, 100, 0.24);
+ }
+
+ .track-info .content {
+     margin-top: 30px;
+ }
+
+ .track-info .content h1 {
+     margin-bottom: 30px;
+     margin-left: 10px;
+ }
+
+ .info-container {
+     width: 100%;
+     height: 50vh;
+     margin-top: -10px;
+     /*background-color: yellow;*/
+ }
+
+ .info-container .left-image {
+     /*background-color: pink;*/
+     height: 73%;
+     width: 35%;
+     float: left;
+ }
+
+ .info-container .left-image .pretty-input {
+  position: relative;
+  height: 200px;
+ }
+
+ .info-container .left-image img {
+     width: 70%;
+     padding-left: 60px
+ }
+
+ .pretty-input #hide-input {
+  position: absolute;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+ }
+
+
+ .info-container .left-image p {
+     font-size: 14px;
+     padding-left: 15%;
+ }
+
+ .info-container .right-inputs {
+     /*background-color: green;*/
+     width: 60%;
+     padding-top: 30px;
+     float: right;
+ }
+
+ .info-container .right-inputs input {
+     width: 90%;
+     height: 40px;
+ }
+
+ .info-container .save {
+  margin: 0;
+  width: 70%;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-right: 15%
+ }
+
+ .info-container .saveandadd {
+     margin: 0;
+     width: 70%;
+     text-align: center;
+     margin-right: 15%
+ }
+
+ .suggestion {
+     display: inline-flex;
+     flex-direction: column;
+     align-items: center;
+     position: absolute;
+     width: 60vw;
+     padding: 28px;
+     background-color: #222;
+     height: 65vh;
+     overflow-y: scroll;
+     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.12), 0 4px 4px 0 rgba(0, 0, 0, 0.24);
+ }
+
+ .suggestion a {
+     border: 1px solid white;
+     padding: 10px;
+     margin-bottom: 16px;
+     background-color: #111;
+     width: 60%;
+     text-align: center;
+ }
+
+ #genre-input {
+     transition: 2s
+ }
+
+ #close-button {
+     position: fixed;
+     background-color: black;
+     width: 20vw;
+     margin: auto;
+     top: 0px;
+     right: 0;
+     height: 30px;
+     display: block;
+     border: 4px solid white;
+     clear: both;
+     text-align: center;
+     padding-top: 20px;
+     	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.12), 0 4px 4px 0 rgba(0, 0, 0, 0.24);
+ }
+
+ .to-bottom {
+     position: absolute;
+     width: 100%;
+     bottom: 0;
+     left: 4%;
+     transition: 2s;
+ }
+
+}
