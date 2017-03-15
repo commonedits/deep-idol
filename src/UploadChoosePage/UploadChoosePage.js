@@ -29,8 +29,9 @@ export default class UploadChoosePage extends Component {
                 },
                 onSuccess: (ret) => {
                     console.log('onSuccess', ret);
-                    localStorage.token = ret["renewed_token"]
-                    this.setState({siberia_id: ret.siberia_id})
+                    localStorage.token = ret["renewed_token"];
+                    this.refs.uploadmodal.addId(ret.siberia_id);
+                    this.setState({siberia_id: ret.siberia_id});
                     this.refs.uploadmodal.sendToSocan(ret);
                 },
                 onError: (err) => {

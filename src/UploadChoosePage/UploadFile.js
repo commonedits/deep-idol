@@ -8,7 +8,7 @@ import Upload from 'rc-upload';
 import cloudinary from 'cloudinary'
 const uploadpicture = "https://api.commonedits.com/v1/user/picture_upload"
 const uploadsong = "https://api.commonedits.com/v1/song/upload";
-const saveBotURL = "https://api.commonedits.com/v1/song/upload";
+const saveBotURL = "https://api.commonedits.com/v1/deepidol/create_bot";
 export default class UploadFile extends Component {
 
     constructor(props, context) {
@@ -32,6 +32,7 @@ export default class UploadFile extends Component {
                 },
                 onSuccess: (ret) => {
                     console.log('Song Uploaded', ret);
+                    localStorage.token = ret["renewed_token"]
                     this.addId(ret.siberia_id)
                     localStorage.token = ret["renewed_token"]
                     this.setState({filecounter: this.state.filecounter + 1})
@@ -90,9 +91,12 @@ export default class UploadFile extends Component {
     }
 
     addId(sid){
+     console.log("adding id ", sid );
      let oldids = this.state.siberiaids;
-     let newIDS = oldids.push(sid);
-     this.setState({siberiaids: newIDS})
+     console.log("oldids", oldids);
+     console.log("this.state.siberiaids", this.state.siberiaids);
+     oldids.push(sid);
+     this.setState({siberiaids: oldids}, console.log(this.state.siberiaids))
     }
 
     saveBot() {
@@ -100,7 +104,7 @@ export default class UploadFile extends Component {
         if (this.state.bot.length === 0 && this.state.genre.length === 0) {
          alert("please enter a bot name and at least one genre");
         } else {
-         this.context.router.history.push('/thanks')
+
          // save it
          let data = {
           bot: this.state.bot,
@@ -112,15 +116,16 @@ export default class UploadFile extends Component {
           method: 'post',
           data: {
            token: localStorage.token,
-           title: this.state.title,
-           genre: this.state.genre.split(','),
-           siberia_id: this.state.siberiaids
+           bot_name: this.state.bot,
+           genres: this.state.genre.split(','),
+           siberia_ids: this.state.siberiaids
           }
          }).then((res) => {
           if(res.data["renewed_token"]) {
           localStorage.token = res.data["renewed_token"]
          }
           document.getElementById('blacklayer').classList.remove('show');
+          this.context.router.history.push('/thanks')
          }).catch((err) => {
           alert("there was an error completing your song")
          })
@@ -208,6 +213,7 @@ export default class UploadFile extends Component {
 
                             <input onFocus={() => this.moveStuff()} id="genre-input" onChange={(event) => this.setState({genre: event.target.value})} placeholder="Genre" value={this.state.genre} required type="text"/>
 
+                            <h4>Files Uploaded: {this.state.filecounter}</h4>
                         </div>
 
 
@@ -223,7 +229,6 @@ export default class UploadFile extends Component {
                                 Upload Another
                             </a>
                            </Upload>
-                           <h4>Files Uploaded: {this.state.filecounter}</h4>
                         </div>
                     </div>
                 </div>
